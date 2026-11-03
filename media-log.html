@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+</head>
+<body>
+<title>Media Log</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: an early-90s TV broadcast — title-card header, VHS-label cards on a night-cel ground, "next episode" previews. Single dark look by choice. */
+:root {
+  color-scheme: dark;
+  --night: #141633;        /* ground: deep cel-painted night sky */
+  --night-2: #1d2048;      /* raised panels */
+  --night-3: #2a2e63;      /* hairlines, wells */
+  --paper: #f3ecdc;        /* text */
+  --dim: #a9a6c9;          /* secondary text, violet-biased */
+  --sunset: #ff7a45;       /* primary accent: sunset orange */
+  --magenta: #ff4f9a;      /* gradient partner */
+  --cyan: #5ee0e8;         /* interactive / focus */
+  --sub: #ffe34d;          /* fansub-subtitle yellow, ratings */
+  --shonen: #ff7a45; --seinen: #5ee0e8; --shojo: #ff8fc7; --josei: #c79bff; --kids: #9be37a; --none: #a9a6c9;
+  --good: #9be37a; --warn: #ffe34d; --bad: #ff6b6b;
+  --f-display: "Dela Gothic One", "Arial Black", Impact, sans-serif;
+  --f-body: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
+  --f-osd: "DotGothic16", "Courier New", ui-monospace, monospace;
+  --s-1: .75rem; --s-2: .875rem; --s-3: 1rem; --s-4: 1.25rem; --s-5: 1.75rem; --s-6: clamp(2.2rem, 7vw, 4.2rem);
+}
+* { box-sizing: border-box; }
+html { background: var(--night); }
+body {
+  background: var(--night);
+  background-image: radial-gradient(ellipse 120% 60% at 50% -10%, #3b2a6b 0%, transparent 60%);
+  background-attachment: fixed;
+  color: var(--paper);
+  font-family: var(--f-body);
+  font-size: var(--s-3);
+  line-height: 1.55;
+  min-height: 100%;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--night); }
+body::after { /* CRT scanlines */
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+/* ---------- title card ---------- */
+.titlecard { padding-block: 28px 18px; display: grid; gap: 10px; }
+.osd { font-family: var(--f-osd); font-size: var(--s-2); letter-spacing: .08em; color: var(--dim); display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.osd .play { color: var(--cyan); }
+.osd .rec { color: var(--bad); animation: blink 1.4s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .osd .rec { animation: none; } }
+.logo { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; }
+.logo h1 {
+  margin: 0; font-family: var(--f-display); font-weight: 400; font-size: var(--s-6); line-height: .95; letter-spacing: .01em;
+  background: linear-gradient(180deg, var(--sub) 0%, var(--sunset) 55%, var(--magenta) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(3px 3px 0 #0b0c22) drop-shadow(0 0 18px rgba(255,79,154,.25));
+  text-wrap: balance;
+}
+.logo .jp { font-family: var(--f-display); font-size: var(--s-5); color: var(--cyan); text-shadow: 2px 2px 0 #0b0c22; }
+.tagline { margin: 0; color: var(--dim); max-width: 62ch; font-size: var(--s-2); }
+
+/* ---------- channel tabs ---------- */
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--night) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 2px solid var(--night-3); }
+.tabs .wrap { display: flex; gap: 6px; padding-block: 8px; overflow-x: auto; }
+.tab { border: 0; background: transparent; padding: 8px 14px; border-radius: 4px; cursor: pointer; font-family: var(--f-osd); font-size: var(--s-2); letter-spacing: .1em; color: var(--dim); white-space: nowrap; display: flex; gap: 8px; align-items: center; }
+.tab .ch { color: var(--night-3); background: var(--dim); color: var(--night); padding: 0 5px; border-radius: 2px; font-size: var(--s-1); }
+.tab[aria-selected="true"] { color: var(--paper); background: var(--night-2); box-shadow: inset 0 -3px 0 var(--sunset); }
+.tab[aria-selected="true"] .ch { background: var(--sunset); }
+.tab .count { color: var(--sub); }
+.save-state { margin-left: auto; font-family: var(--f-osd); font-size: var(--s-1); color: var(--dim); align-self: center; white-space: nowrap; padding-left: 12px; }
+
+main { padding-block: 20px 60px; }
+.view[hidden] { display: none; }
+
+/* ---------- controls ---------- */
+.controls { display: grid; grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+@media (max-width: 900px) { .controls { grid-template-columns: 1fr 1fr; } .controls .search { grid-column: 1 / -1; } }
+.field { display: grid; gap: 4px; min-width: 0; }
+.field label { font-family: var(--f-osd); font-size: var(--s-1); letter-spacing: .12em; color: var(--dim); text-transform: uppercase; }
+.field input, .field select { width: 100%; background: var(--night-2); border: 2px solid var(--night-3); border-radius: 4px; padding: 8px 10px; min-width: 0; }
+.field input::placeholder { color: var(--dim); opacity: .7; }
+.resultline { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-bottom: 16px; font-family: var(--f-osd); font-size: var(--s-2); color: var(--dim); }
+.resultline b { color: var(--sub); font-weight: 400; }
+.chip-clear { border: 1px solid var(--night-3); background: var(--night-2); border-radius: 999px; padding: 2px 10px; cursor: pointer; font-size: var(--s-1); }
+
+/* ---------- VHS label cards ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 14px; }
+.card {
+  --demo: var(--none);
+  display: grid; grid-template-rows: auto 1fr auto; text-align: left; width: 100%;
+  background: var(--night-2); border: 2px solid #0b0c22; border-radius: 6px; overflow: hidden; cursor: pointer; padding: 0;
+  box-shadow: 4px 4px 0 #0b0c22; transition: transform .12s, box-shadow .12s;
+}
+.card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0b0c22; }
+@media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+.card .label {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 5px 10px;
+  background: repeating-linear-gradient(90deg, var(--demo) 0 14px, color-mix(in srgb, var(--demo) 80%, #000) 14px 16px);
+  color: #0b0c22; font-family: var(--f-osd); font-size: var(--s-1); letter-spacing: .08em;
+}
+.card .body { padding: 10px 12px 6px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.card .title { font-family: var(--f-display); font-size: 1.05rem; line-height: 1.2; color: var(--paper); text-wrap: balance; overflow-wrap: anywhere; }
+.card .by { color: var(--dim); font-size: var(--s-1); overflow-wrap: anywhere; }
+.card .meta { font-family: var(--f-osd); font-size: var(--s-1); color: var(--dim); font-variant-numeric: tabular-nums; }
+.card .foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 6px 12px 10px; min-height: 34px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-size: .7rem; color: var(--cyan); background: transparent; border: 0; padding: 0; cursor: pointer; }
+.tag::before { content: "【"; color: var(--night-3); } .tag::after { content: "】"; color: var(--night-3); }
+.tag:hover { color: var(--sub); }
+.demo-shonen { --demo: var(--shonen); } .demo-seinen { --demo: var(--seinen); } .demo-shojo { --demo: var(--shojo); }
+.demo-josei { --demo: var(--josei); } .demo-children { --demo: var(--kids); }
+
+.status { font-family: var(--f-osd); font-size: var(--s-1); letter-spacing: .06em; padding: 1px 7px; border-radius: 3px; border: 1px solid currentColor; white-space: nowrap; }
+.st-planned { color: var(--dim); } .st-in_progress { color: var(--cyan); } .st-completed { color: var(--good); }
+.st-on_hold { color: var(--warn); } .st-dropped { color: var(--bad); }
+.stars { color: var(--sub); font-family: var(--f-osd); font-size: var(--s-2); white-space: nowrap; font-variant-numeric: tabular-nums; text-shadow: 1px 1px 0 #0b0c22; }
+
+/* ---------- empty / panels ---------- */
+.panel { background: var(--night-2); border: 2px solid #0b0c22; border-radius: 6px; box-shadow: 4px 4px 0 #0b0c22; padding: 20px; }
+.empty { text-align: left; display: grid; gap: 10px; max-width: 640px; }
+.empty h3 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: var(--s-4); color: var(--sub); }
+.empty p { margin: 0; color: var(--dim); }
+.btn { border: 2px solid #0b0c22; background: var(--sunset); color: #0b0c22; font-weight: 800; border-radius: 4px; padding: 8px 14px; cursor: pointer; box-shadow: 3px 3px 0 #0b0c22; }
+.btn.ghost { background: var(--night-3); color: var(--paper); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #0b0c22; }
+
+/* ---------- section heads ---------- */
+.sechead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 0 0 14px; }
+.sechead h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: var(--s-5); color: var(--paper); text-shadow: 3px 3px 0 #0b0c22; }
+.sechead .jp { font-family: var(--f-display); color: var(--magenta); font-size: var(--s-3); }
+.sechead p { margin: 0; flex-basis: 100%; color: var(--dim); font-size: var(--s-2); max-width: 70ch; }
+
+/* ---------- stats strip ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 22px; }
+@media (max-width: 640px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat { background: #0b0c22; border-radius: 4px; padding: 10px 12px; font-family: var(--f-osd); }
+.stat .k { font-size: var(--s-1); letter-spacing: .12em; color: var(--dim); }
+.stat .v { font-size: 1.7rem; color: var(--cyan); line-height: 1.1; font-variant-numeric: tabular-nums; }
+
+/* ---------- ranking ---------- */
+.ranking { display: grid; gap: 8px; margin-bottom: 28px; }
+.rankrow { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; align-items: center; background: var(--night-2); border: 2px solid #0b0c22; border-radius: 6px; padding: 8px 12px 8px 0; cursor: pointer; text-align: left; width: 100%; }
+.rankrow:hover { border-color: var(--night-3); }
+.rankno { font-family: var(--f-display); font-size: 1.9rem; text-align: center; color: var(--dim); font-variant-numeric: tabular-nums; line-height: 1; }
+.rankrow:nth-child(1) .rankno { color: var(--sub); } .rankrow:nth-child(2) .rankno { color: #d9dbe8; } .rankrow:nth-child(3) .rankno { color: #e0a070; }
+.rankrow .t { font-family: var(--f-display); font-size: 1rem; overflow-wrap: anywhere; }
+.rankrow .s { color: var(--dim); font-size: var(--s-1); }
+.rankrow .r { display: grid; justify-items: end; gap: 4px; }
+.subgroup h3 { font-family: var(--f-osd); font-weight: 400; letter-spacing: .14em; font-size: var(--s-2); color: var(--dim); margin: 22px 0 10px; text-transform: uppercase; }
+
+/* ---------- next-episode previews ---------- */
+.reco { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 14px; }
+.ep { display: grid; grid-template-columns: 74px minmax(0, 1fr); text-align: left; background: var(--night-2); border: 2px solid #0b0c22; border-radius: 6px; box-shadow: 4px 4px 0 #0b0c22; overflow: hidden; cursor: pointer; padding: 0; width: 100%; }
+.ep .match { background: linear-gradient(180deg, var(--sunset), var(--magenta)); color: #0b0c22; display: grid; place-content: center; text-align: center; padding: 8px 4px; }
+.ep .match b { font-family: var(--f-display); font-weight: 400; font-size: 1.5rem; line-height: 1; }
+.ep .match span { font-family: var(--f-osd); font-size: .65rem; letter-spacing: .1em; }
+.ep .body { padding: 10px 12px; display: grid; gap: 4px; min-width: 0; }
+.ep .why { font-size: var(--s-1); color: #0b0c22; background: var(--sub); padding: 2px 8px; border-radius: 2px; justify-self: start; font-weight: 700; overflow-wrap: anywhere; }
+.ep .title { font-family: var(--f-display); font-size: 1.05rem; line-height: 1.2; overflow-wrap: anywhere; }
+.ep .by { color: var(--dim); font-size: var(--s-1); }
+.profile { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; align-items: center; }
+.profile .lbl { font-family: var(--f-osd); font-size: var(--s-1); letter-spacing: .12em; color: var(--dim); margin-right: 4px; }
+.pchip { font-size: var(--s-1); padding: 2px 9px; border-radius: 999px; background: #0b0c22; }
+.pchip.pos { color: var(--good); } .pchip.neg { color: var(--bad); }
+
+/* ---------- detail dialog ---------- */
+dialog { border: 0; padding: 0; background: transparent; color: var(--paper); width: min(680px, calc(100vw - 24px)); max-height: calc(100vh - 24px); }
+dialog::backdrop { background: rgba(8, 9, 26, .78); }
+.sheet { background: var(--night-2); border: 2px solid #0b0c22; border-radius: 8px; box-shadow: 6px 6px 0 #0b0c22; overflow: hidden; }
+.sheet .label { padding: 6px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.closex { border: 0; background: #0b0c22; color: var(--paper); border-radius: 3px; padding: 2px 9px; cursor: pointer; font-family: var(--f-osd); }
+.sheet .inner { padding: 16px 18px 20px; display: grid; gap: 14px; }
+.sheet h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: var(--s-5); line-height: 1.15; text-wrap: balance; overflow-wrap: anywhere; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.fact { background: #0b0c22; border-radius: 4px; padding: 6px 10px; }
+.fact .k { font-family: var(--f-osd); font-size: .7rem; letter-spacing: .12em; color: var(--dim); }
+.fact .v { font-variant-numeric: tabular-nums; font-size: var(--s-2); }
+.ctl-label { font-family: var(--f-osd); font-size: var(--s-1); letter-spacing: .12em; color: var(--dim); margin-bottom: 6px; display: block; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { border: 2px solid var(--night-3); background: #0b0c22; border-radius: 4px; padding: 5px 10px; cursor: pointer; font-size: var(--s-2); }
+.seg button[aria-pressed="true"] { border-color: currentColor; background: var(--night-3); }
+.rate { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.rate button { border: 2px solid var(--night-3); background: #0b0c22; border-radius: 4px; padding: 6px 0; cursor: pointer; font-family: var(--f-osd); font-variant-numeric: tabular-nums; }
+.rate button.on { background: var(--sub); color: #0b0c22; border-color: var(--sub); }
+.rate-hint { font-family: var(--f-osd); font-size: var(--s-1); color: var(--dim); margin-top: 6px; display: flex; justify-content: space-between; gap: 10px; }
+.prog { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.prog input { width: 90px; background: #0b0c22; border: 2px solid var(--night-3); border-radius: 4px; padding: 6px 8px; font-variant-numeric: tabular-nums; }
+.bar { flex: 1 1 160px; height: 10px; background: #0b0c22; border-radius: 2px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--good)); }
+textarea { width: 100%; min-height: 70px; background: #0b0c22; border: 2px solid var(--night-3); border-radius: 4px; padding: 8px 10px; resize: vertical; }
+.similar { display: grid; gap: 6px; }
+.simrow { display: flex; justify-content: space-between; gap: 10px; align-items: center; background: #0b0c22; border: 0; border-radius: 4px; padding: 6px 10px; cursor: pointer; text-align: left; width: 100%; }
+.simrow span:first-child { overflow-wrap: anywhere; min-width: 0; }
+.simrow .pct { font-family: var(--f-osd); color: var(--cyan); font-size: var(--s-1); white-space: nowrap; }
+.sheet-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+.linkbtn { background: none; border: 0; color: var(--bad); cursor: pointer; font-size: var(--s-1); text-decoration: underline; padding: 0; }
+.confirm { display: flex; gap: 8px; align-items: center; font-size: var(--s-1); flex-wrap: wrap; }
+
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--sub); color: #0b0c22; font-family: var(--f-osd); padding: 6px 14px; border-radius: 3px; box-shadow: 3px 3px 0 #0b0c22; z-index: 60; }
+footer { color: var(--dim); font-size: var(--s-1); padding-block: 0 30px; }
+footer a { color: var(--cyan); }
+</style>
+
+<header class="titlecard wrap">
+  <div class="osd"><span class="play">▶ PLAY</span><span id="osd-clock">SP 0:00:00</span><span class="rec">● REC</span><span id="osd-stats">200 TITLES ON TAPE</span></div>
+  <div class="logo"><h1>MEDIA LOG</h1><span class="jp">メディア・ログ</span></div>
+  <p class="tagline">Track what you've read, watched and played. Rate it out of 10, and the recommender suggests titles that share the themes you liked.</p>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" id="tab-library" data-view="library"><span class="ch">CH1</span>LIBRARY</button>
+    <button class="tab" role="tab" id="tab-log" data-view="log"><span class="ch">CH2</span>MY RANKING <span class="count" id="count-log"></span></button>
+    <button class="tab" role="tab" id="tab-for-you" data-view="for-you"><span class="ch">CH3</span>NEXT UP</button>
+    <span class="save-state" id="save-state">SAVED IN THIS BROWSER</span>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="view" id="view-library" aria-labelledby="tab-library">
+    <div class="controls">
+      <div class="field search"><label for="q">Search</label><input id="q" type="search" placeholder="Title or creator…" autocomplete="off"></div>
+      <div class="field"><label for="f-tag">Theme</label><select id="f-tag"></select></div>
+      <div class="field"><label for="f-demo">Audience</label><select id="f-demo"><option value="">All audiences</option><option>Shōnen</option><option>Seinen</option><option>Shōjo</option><option>Josei</option><option>Children</option></select></div>
+      <div class="field"><label for="f-status">My status</label><select id="f-status"><option value="">Everything</option><option value="none">Not tracked</option><option value="planned">Planned</option><option value="in_progress">In progress</option><option value="completed">Finished</option><option value="on_hold">On hold</option><option value="dropped">Dropped</option></select></div>
+      <div class="field"><label for="f-sort">Sort</label><select id="f-sort"><option value="rank">Best-selling</option><option value="title">Title A–Z</option><option value="new">Newest run</option><option value="old">Oldest run</option><option value="mine">My rating</option><option value="vols">Most volumes</option><option value="short">Fewest volumes</option></select></div>
+    </div>
+    <div class="resultline" id="resultline"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="view" id="view-log" aria-labelledby="tab-log" hidden>
+    <div class="sechead"><h2>My Ranking</h2><span class="jp">ランキング</span><p>Everything you've rated, highest first. Ties go to whatever you updated most recently.</p></div>
+    <div class="stats" id="stats"></div>
+    <div id="ranking-wrap"></div>
+  </section>
+
+  <section class="view" id="view-for-you" aria-labelledby="tab-for-you" hidden>
+    <div class="sechead"><h2>Next Up</h2><span class="jp">次回予告</span><p>Untracked titles ranked by how closely their themes match what you rated highly. Titles you rated low push similar ones down.</p></div>
+    <div id="reco-wrap"></div>
+  </section>
+</main>
+
+<footer class="wrap">Library: 200 best-selling manga series from <a href="https://en.wikipedia.org/wiki/List_of_best-selling_manga" target="_blank" rel="noopener">Wikipedia's list of best-selling manga</a>, Nov 2026. Sales are approximate, in millions of copies.</footer>
+
+<dialog id="detail" aria-labelledby="d-title"><div class="sheet" id="sheet"></div></dialog>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const RAW = [["one-piece","One Piece","Eiichiro Oda","Shōnen",115,1997,null,"o",600.0,["action","adventure","fantasy","comedy","pirates"]],["doraemon","Doraemon","Fujiko F. Fujio","Children",45,1969,1996,"c",300.0,["comedy","sci-fi","slice-of-life","kids"]],["golgo-13","Golgo 13","Takao Saito, Saito Production","Seinen",221,1968,null,"o",300.0,["action","crime","thriller"]],["case-closed-detective-conan","Case Closed / Detective Conan","Gosho Aoyama","Shōnen",108,1994,null,"o",270.0,["mystery","detective","crime"]],["dragon-ball","Dragon Ball","Akira Toriyama","Shōnen",42,1984,1995,"c",260.0,["action","adventure","martial-arts","comedy","fantasy"]],["naruto","Naruto","Masashi Kishimoto","Shōnen",72,1999,2014,"c",250.0,["action","adventure","ninja","martial-arts"]],["demon-slayer-kimetsu-no-yaiba","Demon Slayer: Kimetsu no Yaiba","Koyoharu Gotouge","Shōnen",23,2016,2020,"c",220.0,["action","supernatural","historical","demons"]],["slam-dunk","Slam Dunk","Takehiko Inoue","Shōnen",31,1990,1996,"c",185.0,["sports","basketball","comedy","school","delinquent"]],["kochikame-tokyo-beat-cops","KochiKame: Tokyo Beat Cops","Osamu Akimoto","Shōnen",201,1976,2016,"c",157.2,["comedy","gag","workplace","police"]],["jujutsu-kaisen","Jujutsu Kaisen","Gege Akutami","Shōnen",30,2018,2024,"c",150.0,["action","supernatural","horror","school"]],["crayon-shin-chan","Crayon Shin-chan","Yoshito Usui, UY Team","Seinen",65,1990,null,"o",148.0,["comedy","gag","slice-of-life","family"]],["attack-on-titan","Attack on Titan","Hajime Isayama","Shōnen",34,2009,2021,"c",140.0,["action","dark-fantasy","drama","military","mystery"]],["oishinbo","Oishinbo","Tetsu Kariya, Akira Hanasaki","Seinen",111,1983,2014,"h",135.0,["cooking","drama","workplace"]],["bleach","Bleach","Tite Kubo","Shōnen",74,2001,2016,"c",130.0,["action","supernatural","adventure"]],["jojo-s-bizarre-adventure","JoJo's Bizarre Adventure","Hirohiko Araki","Shōnen/Seinen",139,1987,null,"o",120.0,["action","adventure","supernatural","mystery"]],["kingdom","Kingdom","Yasuhisa Hara","Seinen",79,2006,null,"o",120.0,["action","historical","war","military"]],["astro-boy","Astro Boy","Osamu Tezuka","Shōnen",23,1952,1968,"c",100.0,["sci-fi","action","robots","kids"]],["baki-the-grappler","Baki the Grappler","Keisuke Itagaki","Shōnen",156,1991,null,"o",100.0,["action","martial-arts"]],["fist-of-the-north-star","Fist of the North Star","Buronson, Tetsuo Hara","Shōnen",27,1983,1988,"c",100.0,["action","martial-arts","post-apocalyptic"]],["hajime-no-ippo","Hajime no Ippo","George Morikawa","Shōnen",145,1989,null,"o",100.0,["sports","boxing","martial-arts","comedy"]],["hunter-x-hunter","Hunter × Hunter","Yoshihiro Togashi","Shōnen",39,1998,null,"o",100.0,["action","adventure","fantasy"]],["the-kindaichi-case-files","The Kindaichi Case Files","Yōzaburō Kanari, Seimaru Amagi, Fumiya Satō","Shōnen/Seinen",102,1992,null,"o",100.0,["mystery","detective","crime","school"]],["my-hero-academia","My Hero Academia","Kōhei Horikoshi","Shōnen",42,2014,2024,"c",100.0,["action","superhero","school"]],["touch","Touch","Mitsuru Adachi","Shōnen",26,1981,1986,"c",100.0,["sports","baseball","romance","drama","school"]],["captain-tsubasa","Captain Tsubasa","Yōichi Takahashi","Shōnen/Seinen",110,1981,2024,"c",90.0,["sports","soccer"]],["fullmetal-alchemist","Fullmetal Alchemist","Hiromu Arakawa","Shōnen",27,2001,2010,"c",90.0,["action","adventure","fantasy","military","drama"]],["sazae-san","Sazae-san","Machiko Hasegawa","",68,1946,1974,"c",86.0,["comedy","slice-of-life","family"]],["kinnikuman","Kinnikuman","Yudetamago","Shōnen/Seinen",93,1979,null,"o",85.0,["action","comedy","wrestling","martial-arts","superhero"]],["vagabond","Vagabond","Takehiko Inoue","Seinen",37,1998,2015,"h",82.0,["historical","martial-arts","drama","samurai"]],["sangokushi","Sangokushi","Mitsuteru Yokoyama","Shōnen",60,1971,1986,"c",80.0,["historical","war","military","drama"]],["tokyo-revengers","Tokyo Revengers","Ken Wakui","Shōnen",31,2017,2022,"c",80.0,["action","delinquent","time-travel","drama"]],["haikyu","Haikyu!!","Haruichi Furudate","Shōnen",45,2012,2020,"c",75.0,["sports","volleyball","school","comedy"]],["gintama","Gintama","Hideaki Sorachi","Shōnen",77,2003,2019,"c",73.0,["comedy","gag","action","sci-fi","samurai"]],["fairy-tail","Fairy Tail","Hiro Mashima","Shōnen",63,2006,2017,"c",72.0,["action","adventure","fantasy","magic"]],["rurouni-kenshin","Rurouni Kenshin","Nobuhiro Watsuki","Shōnen",28,1994,1999,"c",72.0,["action","historical","samurai","romance"]],["berserk","Berserk","Kentaro Miura, Kouji Mori, Studio Gaga","Seinen",43,1989,null,"o",70.0,["action","dark-fantasy","horror","drama"]],["major","Major","Takuya Mitsuda","Shōnen",110,1994,null,"o",66.66,["sports","baseball","drama"]],["blue-lock","Blue Lock","Muneyuki Kaneshiro, Yusuke Nomura","Shōnen",39,2018,null,"o",65.0,["sports","soccer","psychological"]],["that-time-i-got-reincarnated-as-a-slime","That Time I Got Reincarnated as a Slime","Fuse, Taiki Kawakami","Shōnen",32,2015,null,"o",62.0,["fantasy","isekai","adventure","comedy","magic"]],["boys-over-flowers","Boys Over Flowers","Yoko Kamio","Shōjo",37,1992,2003,"c",61.0,["romance","drama","school"]],["the-prince-of-tennis","The Prince of Tennis","Takeshi Konomi","Shōnen",42,1999,2008,"c",60.0,["sports","tennis","school"]],["rokudenashi-blues","Rokudenashi Blues","Masanori Morita","Shōnen",42,1988,1997,"c",60.0,["delinquent","boxing","action","school"]],["the-apothecary-diaries","The Apothecary Diaries","Hyūganatsu, Minoji Kurata, Nekokurage","Seinen",39,2017,null,"o",57.0,["mystery","historical","drama","romance"]],["initial-d","Initial D","Shuichi Shigeno","Seinen",48,1995,2013,"c",56.0,["racing","drama"]],["bad-boys","Bad Boys","Hiroshi Tanaka","Seinen",22,1988,1996,"c",55.0,["delinquent","action"]],["h2","H2","Mitsuru Adachi","Shōnen",34,1992,1999,"c",55.0,["sports","baseball","romance","school"]],["ranma-half","Ranma ½","Rumiko Takahashi","Shōnen",38,1987,1996,"c",55.0,["comedy","martial-arts","romance"]],["the-seven-deadly-sins","The Seven Deadly Sins","Nakaba Suzuki","Shōnen",68,2012,null,"o",55.0,["action","adventure","fantasy","magic"]],["shura-no-mon","Shura no Mon","Masatoshi Kawahara","Shōnen",31,1987,1996,"c",55.0,["martial-arts","action"]],["minami-no-tei","Minami no Teiō","Dai Tennōji, Rikiya Gō","Shōnen",188,1992,2026,"c",53.0,["crime","drama"]],["super-radical-gag-family","Super Radical Gag Family","Kenji Hamaoka","Shōnen",107,1993,null,"o",51.0,["comedy","gag","family"]],["city-hunter","City Hunter","Tsukasa Hojo","Shōnen",35,1985,1991,"c",50.0,["action","comedy","crime"]],["cobra","Cobra","Buichi Terasawa","Shōnen",18,1978,1984,"c",50.0,["sci-fi","action","adventure"]],["devilman","Devilman","Go Nagai","Shōnen",5,1972,1973,"c",50.0,["horror","action","supernatural","demons"]],["dragon-quest-the-adventure-of-dai","Dragon Quest: The Adventure of Dai","Riku Sanjo, Koji Inada","Shōnen",37,1989,1996,"c",50.0,["fantasy","adventure","action","magic"]],["fisherman-sanpei","Fisherman Sanpei","Takao Yaguchi","Shōnen",65,1973,1983,"c",50.0,["fishing","adventure","slice-of-life"]],["glass-mask","Glass Mask","Suzue Miuchi","Shōjo",49,1976,2012,"h",50.0,["drama","performing-arts"]],["great-teacher-onizuka","Great Teacher Onizuka","Tooru Fujisawa","Shōnen",25,1997,2002,"c",50.0,["comedy","drama","school","delinquent"]],["inuyasha","Inuyasha","Rumiko Takahashi","Shōnen",56,1996,2008,"c",50.0,["action","fantasy","romance","supernatural","historical","demons"]],["nana","Nana","Ai Yazawa","Shōjo",21,2000,2009,"h",50.0,["drama","romance","music"]],["saint-seiya","Saint Seiya","Masami Kurumada","Shōnen",28,1985,1990,"c",50.0,["action","fantasy","mythology","martial-arts"]],["shoot","Shoot!","Tsukasa Ōshima","Shōnen",66,1990,2003,"c",50.0,["sports","soccer","school"]],["yuyu-hakusho","YuYu Hakusho","Yoshihiro Togashi","Shōnen",19,1990,1994,"c",50.0,["action","supernatural","martial-arts","demons"]],["dokaben","Dokaben","Shinji Mizushima","Shōnen",205,1972,2018,"c",48.0,["sports","baseball","comedy","school"]],["black-jack","Black Jack","Osamu Tezuka","Shōnen",25,1973,1983,"c",47.66,["medical","drama"]],["kosaku-shima","Kosaku Shima","Kenshi Hirokane","Seinen",92,1983,null,"o",47.0,["workplace","drama"]],["tokyo-ghoul","Tokyo Ghoul","Sui Ishida","Seinen",30,2011,2018,"c",47.0,["action","horror","supernatural","dark-fantasy"]],["crows","Crows","Hiroshi Takahashi","Shōnen",26,1990,1998,"c",46.0,["delinquent","action","school"]],["sailor-moon","Sailor Moon","Naoko Takeuchi","Shōjo",18,1991,1997,"c",46.0,["magical-girl","fantasy","romance","action"]],["shizukanaru-don-yakuza-side-story","Shizukanaru Don – Yakuza Side Story","Tatsuo Nitta","Seinen",108,1988,2013,"c",46.0,["crime","comedy","workplace"]],["ace-of-diamond","Ace of Diamond","Yuji Terajima","Shōnen",81,2006,2022,"c",45.0,["sports","baseball","school"]],["dear-boys","Dear Boys","Hiroki Yagami","Shōnen",101,1989,null,"o",45.0,["sports","basketball","school"]],["shonan-junai-gumi","Shonan Junai Gumi","Tooru Fujisawa","Shōnen",31,1990,1996,"c",45.0,["delinquent","comedy"]],["yu-gi-oh","Yu-Gi-Oh!","Kazuki Takahashi","Shōnen",38,1996,2004,"c",44.0,["games","action","supernatural"]],["the-promised-neverland","The Promised Neverland","Kaiu Shirai, Posuka Demizu","Shōnen",20,2016,2020,"c",43.0,["thriller","mystery","dark-fantasy","psychological"]],["spy-x-family","Spy × Family","Tatsuya Endo","Shōnen",17,2019,null,"o",42.0,["comedy","action","family","spy"]],["shaman-king","Shaman King","Hiroyuki Takei","Shōnen",32,1998,2004,"c",41.0,["action","supernatural","adventure"]],["be-bop-high-school","Be-Bop High School","Kazuhiro Kiuchi","Seinen",48,1983,2003,"c",40.0,["delinquent","comedy","school"]],["cooking-papa","Cooking Papa","Tochi Ueyama","Seinen",178,1985,null,"o",40.0,["cooking","slice-of-life","family"]],["crest-of-the-royal-family","Crest of the Royal Family","Chieko Hosokawa","Shōjo",71,1976,null,"o",40.0,["romance","historical","fantasy"]],["ky-kara-ore-wa","Kyō Kara Ore Wa!!","Hiroyuki Nishimori","Shōnen",38,1988,1997,"c",40.0,["delinquent","comedy","school"]],["nodame-cantabile","Nodame Cantabile","Tomoko Ninomiya","Josei",25,2001,2010,"c",39.0,["music","romance","comedy"]],["one-punch-man","One-Punch Man","One, Yusuke Murata","Seinen",37,2012,null,"o",38.0,["action","comedy","superhero"]],["black-butler","Black Butler","Yana Toboso","Shōnen",35,2006,null,"o",36.0,["mystery","supernatural","historical","demons"]],["chainsaw-man","Chainsaw Man","Tatsuki Fujimoto","Shōnen",24,2018,2026,"c",36.0,["action","horror","dark-fantasy","demons"]],["kimi-ni-todoke","Kimi ni Todoke","Karuho Shiina","Shōjo",30,2005,2017,"c",36.0,["romance","school","slice-of-life"]],["the-chef","The Chef","Mai Tsurugina, Tadashi Katou","Seinen",41,1985,1993,"c",35.0,["cooking","drama"]],["chibi-maruko-chan","Chibi Maruko-chan","Momoko Sakura","Shōjo",18,1986,2022,"c",35.0,["comedy","slice-of-life","family"]],["frieren-beyond-journey-s-end","Frieren: Beyond Journey's End","Kanehito Yamada, Tsukasa Abe","Shōnen",15,2020,null,"o",35.0,["fantasy","adventure","drama","magic"]],["itazura-na-kiss","Itazura na Kiss","Kaoru Tada","Shōjo",23,1990,1999,"c",35.0,["romance","comedy","school"]],["salary-man-kintaro","Salary Man Kintaro","Hiroshi Motomiya","Seinen",30,1994,2002,"c",35.0,["workplace","action","drama"]],["space-brothers","Space Brothers","Chūya Koyama","Seinen",46,2007,2026,"c",35.0,["sci-fi","drama","workplace"]],["urusei-yatsura","Urusei Yatsura","Rumiko Takahashi","Shōnen",34,1978,1987,"c",35.0,["comedy","romance","sci-fi"]],["worst","Worst","Hiroshi Takahashi","Shōnen",33,2002,2013,"c",35.0,["delinquent","action","school"]],["yowamushi-pedal","Yowamushi Pedal","Wataru Watanabe","Shōnen",101,2008,null,"o",35.0,["sports","cycling","school"]],["3x3-eyes","3×3 Eyes","Yuzo Takada","Seinen",40,1987,2002,"c",33.33,["fantasy","supernatural","action","adventure"]],["kaze-densetsu-bukkomi-no-taku","Kaze Densetsu: Bukkomi no Taku","Hiroto Saki, Juzo Tokoro","Shōnen/Seinen",27,1991,1997,"c",33.0,["delinquent","racing","action"]],["hell-teacher-jigoku-sensei-nube","Hell Teacher: Jigoku Sensei Nube","Shō Makura, Takeshi Okano","Shōnen",31,1993,1999,"c",32.0,["supernatural","horror","comedy","school"]],["the-silent-service","The Silent Service","Kaiji Kawaguchi","Seinen",32,1988,1996,"c",32.0,["military","thriller"]],["a-certain-magical-index","A Certain Magical Index","Kazuma Kamachi","Shōnen",33,2007,null,"o",31.0,["action","sci-fi","magic","school"]],["kuroko-s-basketball","Kuroko's Basketball","Tadatoshi Fujimaki","Shōnen",30,2008,2014,"c",31.0,["sports","basketball","school"]],["bastard","Bastard!!","Kazushi Hagiwara","Shōnen/Seinen",27,1988,2012,"h",30.0,["fantasy","action","magic","dark-fantasy"]],["chameleon","Chameleon","Atsushi Kase","Shōnen",47,1990,2000,"c",30.0,["delinquent","comedy"]],["death-note","Death Note","Tsugumi Ohba, Takeshi Obata","Shōnen",12,2003,2006,"c",30.0,["thriller","psychological","supernatural","mystery"]],["dr-slump","Dr. Slump","Akira Toriyama","Shōnen",18,1980,1984,"c",30.0,["comedy","gag","sci-fi"]],["the-fable","The Fable","Katsuhisa Minami","Seinen",36,2014,null,"o",30.0,["action","crime","comedy"]],["fruits-basket","Fruits Basket","Natsuki Takaya","Shōjo",23,1998,2006,"c",30.0,["romance","drama","supernatural"]],["gaki-deka","Gaki Deka","Tatsuhiko Yamagami","Shōnen",26,1974,1980,"c",30.0,["comedy","gag"]],["golden-kamuy","Golden Kamuy","Satoru Noda","Seinen",31,2014,2022,"c",30.0,["adventure","historical","action","comedy"]],["jarinko-chie","Jarinko Chie","Etsumi Haruki","Seinen",67,1978,1997,"c",30.0,["comedy","slice-of-life","family"]],["jingi","Jingi","Tachihara Ayumi","Seinen",66,1988,2017,"c",30.0,["crime","drama"]],["kaiji","Kaiji","Nobuyuki Fukumoto","Seinen",91,1996,null,"o",30.0,["psychological","thriller","gambling"]],["pok-mon-adventures","Pokémon Adventures","Hidenori Kusaka, Mato, Satoshi Yamamoto","Children",64,1997,null,"o",30.0,["adventure","fantasy","kids"]],["reborn","Reborn!","Akira Amano","Shōnen",42,2004,2012,"c",30.0,["action","comedy","crime"]],["tokimeki-tonight","Tokimeki Tonight","Koi Ikeno","Shōjo",30,1982,1994,"c",30.0,["romance","supernatural","comedy"]],["toriko","Toriko","Mitsutoshi Shimabukuro","Shōnen",43,2008,2016,"c",30.0,["action","adventure","cooking"]],["ushio-and-tora","Ushio and Tora","Kazuhiro Fujita","Shōnen",33,1990,1996,"c",30.0,["action","supernatural","demons"]],["yawara","Yawara!","Naoki Urasawa","Seinen",29,1986,1993,"c",30.0,["sports","martial-arts","romance"]],["futari-ecchi","Futari Ecchi","Katsu Aki","Seinen",95,1997,null,"o",29.5,["romance","comedy","mature"]],["chihayafuru","Chihayafuru","Yuki Suetsugu","Josei",50,2007,2022,"c",29.0,["sports","games","drama","romance","school"]],["shonan-bakusozoku","Shonan Bakusozoku","Satoshi Yoshida","Shōnen",16,1982,1988,"c",29.0,["delinquent","comedy"]],["asari-chan","Asari-chan","Mayumi Muroyama","Shōjo",100,1978,2014,"c",28.0,["comedy","family","slice-of-life"]],["assassination-classroom","Assassination Classroom","Yūsei Matsui","Shōnen",21,2012,2016,"c",27.0,["comedy","action","school","sci-fi"]],["d-gray-man","D.Gray-man","Katsura Hoshino","Shōnen",29,2004,null,"o",27.0,["action","dark-fantasy","supernatural"]],["eyeshield-21","Eyeshield 21","Riichiro Inagaki, Yusuke Murata","Shōnen",37,2002,2009,"c",27.0,["sports","football","comedy","school"]],["sakigake-otokojuku","Sakigake!! Otokojuku","Akira Miyashita","Shōnen",34,1985,1991,"c",27.0,["martial-arts","action","comedy","school"]],["seito-shokun","Seito Shokun!","Yoko Shoji","Shōjo/Josei",79,1977,2019,"c",27.0,["drama","school"]],["y-kan-club","Yūkan Club","Yukari Ichijo","Shōjo",19,1982,2002,"c",27.0,["comedy","mystery","school"]],["20th-century-boys","20th Century Boys","Naoki Urasawa","Seinen",22,1999,2006,"c",26.4,["mystery","thriller","sci-fi"]],["bari-bari-densetsu","Bari Bari Densetsu","Shuichi Shigeno","Shōnen",38,1983,1991,"c",26.0,["racing","drama","school"]],["tsuribaka-nisshi","Tsuribaka Nisshi","Jūzō Yamasaki, Kenichi Kitami","Seinen",118,1979,null,"o",26.0,["comedy","fishing","workplace"]],["angel-heart","Angel Heart","Tsukasa Hojo","Seinen",49,2001,2017,"c",25.0,["action","drama","crime"]],["aoashi","Aoashi","Yugo Kobayashi, Naohiko Ueno","Seinen",40,2015,2025,"c",25.0,["sports","soccer","drama"]],["ashita-no-joe","Ashita no Joe","Ikki Kajiwara, Tetsuya Chiba","Shōnen",20,1968,1973,"c",25.0,["sports","boxing","drama"]],["black-clover","Black Clover","Yūki Tabata","Shōnen",38,2015,2026,"c",25.0,["action","fantasy","magic"]],["blue-exorcist","Blue Exorcist","Kazue Kato","Shōnen",34,2009,null,"o",25.0,["action","supernatural","demons","school"]],["boys-be","Boys Be...","Masahiro Itabashi, Hiroyuki Tamakoshi","Shōnen",58,1991,2001,"c",25.0,["romance","comedy","school"]],["emblem-take-2","Emblem Take 2","Kazumasa Kiuchi, Jun Watanabe","Seinen",62,1990,2004,"c",25.0,["crime","drama"]],["flame-of-recca","Flame of Recca","Nobuyuki Anzai","Shōnen",33,1995,2002,"c",25.0,["action","martial-arts","ninja","supernatural"]],["fushigi-y-gi","Fushigi Yûgi","Yuu Watase","Shōjo/Josei",34,1991,null,"o",25.0,["fantasy","romance","isekai"]],["hikaru-no-go","Hikaru no Go","Yumi Hotta, Takeshi Obata","Shōnen",23,1998,2003,"c",25.0,["games","drama","supernatural"]],["magi-the-labyrinth-of-magic","Magi: The Labyrinth of Magic","Shinobu Ohtaka","Shōnen",37,2009,2017,"c",25.0,["adventure","fantasy","magic","action"]],["maison-ikkoku","Maison Ikkoku","Rumiko Takahashi","Seinen",15,1980,1987,"c",25.0,["romance","comedy","slice-of-life"]],["miyuki","Miyuki","Mitsuru Adachi","Shōnen",12,1980,1984,"c",25.0,["romance","comedy"]],["neon-genesis-evangelion","Neon Genesis Evangelion","Yoshiyuki Sadamoto","Shōnen",14,1994,2013,"c",25.0,["mecha","sci-fi","psychological"]],["oh-my-goddess","Oh My Goddess!","Kōsuke Fujishima","Seinen",48,1988,2014,"c",25.0,["romance","comedy","fantasy"]],["oshi-no-ko","Oshi no Ko","Aka Akasaka, Mengo Yokoyari","Seinen",16,2020,2024,"c",25.0,["drama","mystery","showbiz"]],["patalliro","Patalliro!","Mineo Maya","Shōjo",104,1979,null,"o",25.0,["comedy","gag"]],["parasyte","Parasyte","Hitoshi Iwaaki","Seinen",10,1989,1994,"c",25.0,["horror","sci-fi","action"]],["the-ping-pong-club","The Ping Pong Club","Minoru Furuya","Seinen",13,1993,1996,"c",25.0,["comedy","gag","school"]],["saiyuki","Saiyuki","Kazuya Minekura","Shōnen/Shōjo/Josei",27,1997,null,"o",25.0,["action","fantasy","adventure","demons"]],["tasogare-ry-seigun","Tasogare Ryūseigun","Kenshi Hirokane","Seinen",79,1995,null,"o",25.0,["romance","drama"]],["ahiru-no-sora","Ahiru no Sora","Takeshi Hinata","Shōnen",51,2004,2019,"h",24.0,["sports","basketball","school","drama"]],["gantz","Gantz","Hiroya Oku","Seinen",37,2000,2013,"c",24.0,["action","sci-fi","horror"]],["kaguya-sama-love-is-war","Kaguya-sama: Love Is War","Aka Akasaka","Seinen",28,2015,2022,"c",24.0,["romance","comedy","school"]],["zatch-bell","Zatch Bell!","Makoto Raiku","Shōnen",33,2001,2007,"c",23.8,["action","fantasy","adventure"]],["rave-master","Rave Master","Hiro Mashima","Shōnen",35,1999,2005,"c",23.5,["action","adventure","fantasy"]],["giant-killing","Giant Killing","Masaya Tsunamoto, Tsujitomo","Seinen",70,2007,null,"o",23.0,["sports","soccer","workplace"]],["himitsu-series","Himitsu Series","Yasuko Uchiyama, Tokuo Yokota, Terumi Fujiki, Yoshitari Iizuka","Children",116,1972,2014,"c",23.0,["educational","kids"]],["the-rose-of-versailles","The Rose of Versailles","Riyoko Ikeda","Shōjo",10,1972,1973,"c",23.0,["historical","romance","drama"]],["ushijima-the-loan-shark","Ushijima the Loan Shark","Shohei Manabe","Seinen",46,2004,2019,"c",23.0,["crime","psychological","drama"]],["abu-san","Abu-san","Shinji Mizushima","Seinen",107,1973,2014,"c",22.0,["sports","baseball","drama"]],["cardcaptor-sakura","Cardcaptor Sakura","Clamp","Shōjo",28,1996,2023,"c",22.0,["magical-girl","fantasy","romance"]],["don-t-call-it-mystery","Don't Call It Mystery","Yumi Tamura","Josei",16,2016,null,"o",22.0,["mystery"]],["hayate-the-combat-butler","Hayate the Combat Butler","Kenjiro Hata","Shōnen",52,2004,2017,"c",22.0,["comedy","romance"]],["hoshin-engi","Hoshin Engi","Ryu Fujisaki","Shōnen",23,1996,2000,"c",22.0,["fantasy","action","mythology","historical"]],["made-in-abyss","Made in Abyss","Akihito Tsukushi","Shōnen",14,2012,null,"o",22.0,["adventure","dark-fantasy"]],["swan","Swan","Kyoko Ariyoshi","Shōjo",21,1976,1981,"c",22.0,["drama","performing-arts"]],["terra-formars","Terra Formars","Yū Sasuga, Kenichi Tachibana","Seinen",23,2011,null,"o",22.0,["sci-fi","action","horror"]],["d-butsu-no-oisha-san","Dōbutsu no Oisha-san","Noriko Sasaki","Shōjo",12,1987,1993,"c",21.6,["comedy","slice-of-life","medical"]],["osu-karate-club","Osu! Karate Club","Koji Takahashi","Seinen",43,1985,1996,"c",21.0,["martial-arts","delinquent","comedy"]],["rookies","Rookies","Masanori Morita","Shōnen",24,1998,2003,"c",21.0,["sports","baseball","delinquent","school","drama"]],["tsubasa-reservoir-chronicle","Tsubasa: Reservoir Chronicle","Clamp","Shōnen",28,2003,2009,"c",21.0,["fantasy","adventure","romance"]],["dragon-quest-the-mark-of-erdick","Dragon Quest: The Mark of Erdick","Chiaki Kawamata, Junji Koyanagi, Kamui Fujiwara","Shōnen",21,1991,1997,"c",20.9,["fantasy","adventure"]],["soul-eater","Soul Eater","Atsushi Ohkubo","Shōnen",25,2004,2013,"c",20.4,["action","supernatural","school"]],["sh-nen-sh-jo-nippon-no-rekishi","Shōnen Shōjo Nippon no Rekishi","Kōta Kodama, Arakawa Shoji","Children",24,1981,2018,"c",20.2,["educational","historical","kids"]],["750-rider","750 Rider","Isami Ishii","Shōnen",50,1975,1985,"c",20.0,["comedy","slice-of-life","school"]],["buddha","Buddha","Osamu Tezuka","Seinen",14,1972,1983,"c",20.0,["historical","drama"]],["cat-s-eye","Cat's Eye","Tsukasa Hojo","Shōnen",18,1981,1985,"c",20.0,["crime","romance","action"]],["cuffs-kizu-darake-no-chizu","Cuffs – Kizu Darake no Chizu","Jin Tojo","Seinen",32,1997,2005,"c",20.0,["delinquent","action"]],["dr-stone","Dr. Stone","Riichiro Inagaki, Boichi","Shōnen",27,2017,2022,"c",20.0,["sci-fi","adventure","post-apocalyptic"]],["fire-force","Fire Force","Atsushi Ohkubo","Shōnen",34,2015,2022,"c",20.0,["action","supernatural","sci-fi"]],["food-wars-shokugeki-no-soma","Food Wars!: Shokugeki no Soma","Yūto Tsukuda, Shun Saeki","Shōnen",36,2012,2019,"c",20.0,["cooking","comedy","school"]],["haruhi-suzumiya","Haruhi Suzumiya","Makoto Mizuno, Gaku Tsugano, Puyo, Eretto","Shōnen",20,2005,2013,"c",20.0,["comedy","sci-fi","school","supernatural"]],["keiji","Keiji","Keiichiro Ryu, Tetsuo Hara","Shōnen",18,1990,1993,"c",20.0,["historical","action","samurai"]],["kimagure-orange-road","Kimagure Orange Road","Izumi Matsumoto","Shōnen",18,1984,1987,"c",20.0,["romance","comedy","supernatural","school"]],["love-hina","Love Hina","Ken Akamatsu","Shōnen",14,1998,2001,"c",20.0,["romance","comedy"]],["master-keaton","Master Keaton","Naoki Urasawa, Hokusei Katsushika, Takashi Nagasaki","Seinen",18,1988,1994,"c",20.0,["mystery","adventure"]],["mazinger-z","Mazinger Z","Go Nagai","Shōnen",5,1972,1974,"c",20.0,["mecha","sci-fi","action"]],["monster","Monster","Naoki Urasawa","Seinen",18,1994,2001,"c",20.0,["thriller","mystery","psychological","crime"]],["negima-magister-negi-magi","Negima! Magister Negi Magi","Ken Akamatsu","Shōnen",38,2003,2012,"c",20.0,["fantasy","magic","comedy","school"]],["peacock-king","Peacock King","Makoto Ogino","Seinen",45,1985,2019,"c",20.0,["supernatural","horror","action"]],["the-quintessential-quintuplets","The Quintessential Quintuplets","Negi Haruba","Shōnen",14,2017,2020,"c",20.0,["romance","comedy","school"]],["record-of-ragnarok","Record of Ragnarok","Shinya Umemura, Takumi Fukui, Azychika","Seinen",28,2017,null,"o",20.0,["action","mythology"]],["red-river","Red River","Chie Shinohara","Shōjo",28,1995,2002,"c",20.0,["historical","romance","isekai","fantasy"]],["sh-nen-ashibe","Shōnen Ashibe","Hiromi Morishita","Seinen",8,1988,1994,"c",20.0,["comedy","slice-of-life","kids"]],["sukeban-deka","Sukeban Deka","Shinji Wada","Shōjo",22,1976,1982,"c",20.0,["action","crime","school"]],["tokyo-daigaku-monogatari","Tokyo Daigaku Monogatari","Tatsuya Egawa","Seinen",34,1992,2001,"c",20.0,["romance","comedy"]],["weed","Weed","Yoshihiro Takahashi","Seinen",60,1999,2009,"c",20.0,["adventure","action","animals"]],["welcome-to-demon-school-iruma-kun","Welcome to Demon School! Iruma-kun","Osamu Nishi","Shōnen",49,2017,null,"o",20.0,["comedy","fantasy","school","demons"]]];
+const STATUSES = [["planned","Planned"],["in_progress","In progress"],["completed","Finished"],["on_hold","On hold"],["dropped","Dropped"]];
+const STATUS_LABEL = Object.fromEntries(STATUSES);
+const PUB = { o: "Ongoing", c: "Completed", h: "On hiatus" };
+const ITEMS = RAW.map((r, i) => ({ id: r[0], title: r[1], creators: r[2], demo: r[3], vols: r[4], start: r[5], end: r[6], pub: PUB[r[7]], sales: r[8], tags: r[9], rank: i + 1 }));
+const BY = Object.fromEntries(ITEMS.map(x => [x.id, x]));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const demoClass = d => "demo-" + (d.split("/")[0] || "none").toLowerCase().normalize("NFD").replace(/[^a-z]/g, "");
+const years = x => x.start + "–" + (x.end ?? "now");
+
+/* ---------- tag weighting (rarer themes say more) ---------- */
+const DF = {};
+ITEMS.forEach(x => x.tags.forEach(t => DF[t] = (DF[t] || 0) + 1));
+const IDF = Object.fromEntries(Object.entries(DF).map(([t, n]) => [t, Math.log((ITEMS.length + 1) / (n + 0.5))]));
+ITEMS.forEach(x => {
+  x.vec = {}; let ss = 0;
+  x.tags.forEach(t => { x.vec[t] = IDF[t]; ss += IDF[t] ** 2; });
+  x.norm = Math.sqrt(ss) || 1;
+  x.creatorSet = new Set(x.creators.split(",").map(s => s.trim()).filter(c => !/^(UY Team|Saito Production|Studio Gaga)$/.test(c)));
+});
+function similarity(a, b) {
+  let dot = 0;
+  for (const t in a.vec) if (b.vec[t]) dot += a.vec[t] * b.vec[t];
+  let s = dot / (a.norm * b.norm);
+  for (const c of a.creatorSet) if (b.creatorSet.has(c)) { s += 0.15; break; }
+  if (a.demo && a.demo === b.demo) s += 0.03;
+  return Math.min(1, s);
+}
+
+/* ---------- state + storage ---------- */
+let LOG = {};          // id -> {status, rating, progress, notes, updated}
+const LS_KEY = "media-log-v1";
+function readLocal() { try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}") || {}; } catch { return {}; } }
+function writeLocal() { try { localStorage.setItem(LS_KEY, JSON.stringify(LOG)); } catch {} }
+LOG = readLocal();
+
+const remote = { col: null, chains: {} };
+function setSaveState(t) { $("#save-state").textContent = t; }
+function persist(id) {
+  writeLocal();
+  if (!remote.col) return;
+  const e = LOG[id];
+  const prev = remote.chains[id] || Promise.resolve();
+  remote.chains[id] = prev.then(() => e ? remote.col.doc(id).set(e) : remote.col.doc(id).delete())
+    .then(() => setSaveState("SAVED TO YOUR ACCOUNT"))
+    .catch(() => setSaveState("ACCOUNT SAVE FAILED · KEPT IN BROWSER"));
+}
+async function connectRemote() {
+  try {
+    if (!window.claude?.use) return;
+    const [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (!db || !user) return;
+    const uid = await user.id();
+    if (!uid) return;
+    const col = db.collection("data/users/" + uid);
+    let first = true;
+    const timer = setTimeout(() => setSaveState("SAVED IN THIS BROWSER"), 10000);
+    col.onSnapshot(snap => {
+      clearTimeout(timer);
+      const next = {};
+      snap.docs.forEach(d => { const v = d.data(); if (v && BY[d.id]) next[d.id] = v; });
+      remote.col = col;
+      if (first) {
+        first = false;
+        // carry over anything logged in this browser before the account store was reachable
+        const local = readLocal();
+        for (const id in local) if (BY[id] && (!next[id] || (local[id].updated || 0) > (next[id].updated || 0))) { next[id] = local[id]; col.doc(id).set(local[id]).catch(() => {}); }
+      }
+      LOG = next; writeLocal();
+      setSaveState("SAVED TO YOUR ACCOUNT");
+      renderAll();
+    }, () => { clearTimeout(timer); remote.col = null; setSaveState("SAVED IN THIS BROWSER"); });
+  } catch { /* stay on browser storage */ }
+}
+
+function updateEntry(id, patch) {
+  const cur = LOG[id] || { status: null, rating: null, progress: null, notes: "" };
+  const e = { ...cur, ...patch, updated: Date.now() };
+  if (patch.status === "completed" && !e.progress) e.progress = BY[id].vols;
+  if (!e.status && e.rating == null && !e.progress && !e.notes) delete LOG[id]; else LOG[id] = e;
+  persist(id);
+  renderAll();
+}
+
+/* ---------- recommender ---------- */
+function signal(e) {
+  if (e.rating != null) return (e.rating - 5.5) / 4.5;     // 10 → +1, 1 → -1
+  return { completed: 0.35, in_progress: 0.4, on_hold: 0.05, dropped: -0.45, planned: 0 }[e.status] ?? 0;
+}
+function recommend(limit = 24) {
+  const seeds = Object.entries(LOG).map(([id, e]) => ({ item: BY[id], w: signal(e), e })).filter(s => s.item && s.w !== 0);
+  if (!seeds.length) return { seeds, list: [], profile: [] };
+  const profile = {};
+  seeds.forEach(s => s.item.tags.forEach(t => profile[t] = (profile[t] || 0) + s.w * IDF[t] / Math.sqrt(s.item.tags.length)));
+  const list = [];
+  for (const x of ITEMS) {
+    if (LOG[x.id]) continue;
+    let best = null, total = 0, wsum = 0;
+    for (const s of seeds) {
+      const sim = similarity(x, s.item);
+      total += s.w * sim; wsum += Math.abs(s.w);
+      if (s.w > 0 && (!best || sim * s.w > best.score)) best = { score: sim * s.w, seed: s, sim };
+    }
+    if (!best) continue;
+    const score = total / wsum + 0.015 * Math.log10(x.sales);
+    if (score <= 0) continue;
+    const shared = x.tags.filter(t => best.seed.item.vec[t]).sort((a, b) => IDF[b] - IDF[a]).slice(0, 3);
+    const sameCreator = [...x.creatorSet].find(c => best.seed.item.creatorSet.has(c));
+    list.push({ x, score, best, shared, sameCreator });
+  }
+  list.sort((a, b) => b.score - a.score);
+  const top = list.slice(0, limit);
+  const max = top[0]?.score || 1;
+  top.forEach(r => r.pct = Math.max(1, Math.round(100 * r.score / max)));
+  const prof = Object.entries(profile).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, 8);
+  return { seeds, list: top, profile: prof };
+}
+
+/* ---------- rendering ---------- */
+const tagOpts = Object.keys(DF).sort();
+$("#f-tag").innerHTML = '<option value="">All themes</option>' + tagOpts.map(t => `<option value="${t}">${t} (${DF[t]})</option>`).join("");
+
+function starStr(r) { return r == null ? "" : `★ ${r}/10`; }
+function card(x) {
+  const e = LOG[x.id];
+  const st = e?.status ? `<span class="status st-${e.status}">${STATUS_LABEL[e.status]}</span>` : `<span class="meta">#${x.rank} · ${x.sales}M sold</span>`;
+  return `<button class="card ${demoClass(x.demo)}" data-id="${x.id}">
+    <span class="label"><span>${esc(x.demo || "General")}</span><span>${x.vols} VOL</span></span>
+    <span class="body"><span class="title">${esc(x.title)}</span><span class="by">${esc(x.creators)}</span>
+      <span class="meta">${years(x)} · ${x.pub}</span>
+      <span class="tags">${x.tags.map(t => `<span class="tag" role="link" tabindex="-1" data-tag="${t}">${t}</span>`).join("")}</span></span>
+    <span class="foot">${st}<span class="stars">${starStr(e?.rating)}</span></span>
+  </button>`;
+}
+
+function renderLibrary() {
+  const q = $("#q").value.trim().toLowerCase(), tag = $("#f-tag").value, demo = $("#f-demo").value, status = $("#f-status").value, sort = $("#f-sort").value;
+  let list = ITEMS.filter(x =>
+    (!q || x.title.toLowerCase().includes(q) || x.creators.toLowerCase().includes(q)) &&
+    (!tag || x.tags.includes(tag)) &&
+    (!demo || x.demo.split("/").map(s => s.trim()).includes(demo)) &&
+    (!status || (status === "none" ? !LOG[x.id]?.status : LOG[x.id]?.status === status)));
+  const cmp = {
+    rank: (a, b) => a.rank - b.rank, title: (a, b) => a.title.localeCompare(b.title),
+    new: (a, b) => b.start - a.start, old: (a, b) => a.start - b.start,
+    vols: (a, b) => b.vols - a.vols, short: (a, b) => a.vols - b.vols,
+    mine: (a, b) => (LOG[b.id]?.rating ?? -1) - (LOG[a.id]?.rating ?? -1) || a.rank - b.rank,
+  }[sort];
+  list.sort(cmp);
+  const filtered = q || tag || demo || status;
+  $("#resultline").innerHTML = `<span><b>${list.length}</b> of ${ITEMS.length} titles</span>` + (filtered ? '<button class="chip-clear" id="clear">Clear filters</button>' : "");
+  $("#grid").innerHTML = list.length ? list.map(card).join("") : `<div class="panel empty"><h3>Nothing on this tape</h3><p>No titles match those filters. Clear one to see more.</p></div>`;
+}
+
+function renderLog() {
+  const entries = Object.entries(LOG).filter(([id]) => BY[id]);
+  const done = entries.filter(([, e]) => e.status === "completed");
+  const rated = entries.filter(([, e]) => e.rating != null).sort((a, b) => b[1].rating - a[1].rating || (b[1].updated || 0) - (a[1].updated || 0));
+  const vols = entries.reduce((s, [id, e]) => s + (e.status === "completed" ? BY[id].vols : (e.progress || 0)), 0);
+  const avg = rated.length ? (rated.reduce((s, [, e]) => s + e.rating, 0) / rated.length).toFixed(1) : "–";
+  $("#stats").innerHTML = [["TRACKED", entries.length], ["FINISHED", done.length], ["VOLUMES READ", vols.toLocaleString()], ["AVG RATING", avg]]
+    .map(([k, v]) => `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join("");
+  $("#count-log").textContent = entries.length ? entries.length : "";
+  $("#osd-stats").textContent = entries.length ? `${done.length} FINISHED · ${entries.length} TRACKED` : "200 TITLES ON TAPE";
+  if (!entries.length) {
+    $("#ranking-wrap").innerHTML = `<div class="panel empty"><h3>Your tape is blank</h3><p>Open any title in the Library, set its status and give it a score out of 10. Rated titles line up here from best to worst.</p><div><button class="btn" data-go="library">Browse the library</button></div></div>`;
+    return;
+  }
+  const row = (id, e, i) => { const x = BY[id]; return `<button class="rankrow" data-id="${id}"><span class="rankno">${i == null ? "–" : i + 1}</span>
+    <span><span class="t">${esc(x.title)}</span><br><span class="s">${esc(x.creators)} · ${x.vols} vol${e.progress && e.status !== "completed" ? ` · read ${e.progress}` : ""}</span></span>
+    <span class="r">${e.rating != null ? `<span class="stars">★ ${e.rating}</span>` : ""}${e.status ? `<span class="status st-${e.status}">${STATUS_LABEL[e.status]}</span>` : ""}</span></button>`; };
+  let html = rated.length ? `<div class="ranking">${rated.map(([id, e], i) => row(id, e, i)).join("")}</div>` : `<div class="panel empty"><h3>No scores yet</h3><p>You've tracked titles but haven't rated any. Scores decide the ranking and drive the Next Up suggestions.</p></div>`;
+  for (const [st, label] of STATUSES) {
+    const un = entries.filter(([, e]) => e.rating == null && e.status === st).sort((a, b) => (b[1].updated || 0) - (a[1].updated || 0));
+    if (un.length) html += `<div class="subgroup"><h3>${label}, not yet rated · ${un.length}</h3><div class="ranking">${un.map(([id, e]) => row(id, e, null)).join("")}</div></div>`;
+  }
+  $("#ranking-wrap").innerHTML = html;
+}
+
+function renderReco() {
+  const { seeds, list, profile } = recommend();
+  if (!seeds.length) {
+    const starters = ["one-piece", "death-note", "fruits-basket", "slam-dunk", "monster", "sailor-moon"];
+    $("#reco-wrap").innerHTML = `<div class="panel empty"><h3>Rate a few to start the broadcast</h3><p>Next Up learns from your scores. Rate three or more titles you know well, including ones you didn't like. Here are some well-known starting points:</p>
+      <div class="grid">${starters.map(id => card(BY[id])).join("")}</div></div>`;
+    return;
+  }
+  const prof = profile.length ? `<div class="profile"><span class="lbl">YOUR TASTE</span>${profile.map(([t, v]) => `<span class="pchip ${v > 0 ? "pos" : "neg"}">${v > 0 ? "+" : "−"} ${t}</span>`).join("")}</div>` : "";
+  const thin = seeds.length < 3 ? `<p class="tagline" style="margin:0 0 14px">Based on ${seeds.length} title${seeds.length > 1 ? "s" : ""} so far. Suggestions sharpen after three or more ratings.</p>` : "";
+  $("#reco-wrap").innerHTML = prof + thin + (list.length ? `<div class="reco">${list.map(r => {
+    const why = r.sameCreator ? `Same creator as ${r.best.seed.item.title}` : `Because you liked ${r.best.seed.item.title}`;
+    return `<button class="ep ${demoClass(r.x.demo)}" data-id="${r.x.id}"><span class="match"><b>${r.pct}</b><span>MATCH</span></span>
+      <span class="body"><span class="why">${esc(why)}</span><span class="title">${esc(r.x.title)}</span><span class="by">${esc(r.x.creators)} · ${r.x.vols} vol · ${years(r.x)}</span>
+      <span class="tags">${r.x.tags.map(t => `<span class="tag" data-tag="${t}" style="${r.shared.includes(t) ? "color:var(--sub)" : ""}">${t}</span>`).join("")}</span></span></button>`;
+  }).join("")}</div>` : `<div class="panel empty"><h3>Out of matches</h3><p>Every title that fits your ratings is already in your log. Rate more titles, or try a theme you haven't explored.</p></div>`);
+}
+
+function renderAll() { renderLibrary(); renderLog(); renderReco(); if ($("#detail").open) renderDetail(openId); }
+
+/* ---------- detail sheet ---------- */
+let openId = null, confirmClear = false;
+function renderDetail(id) {
+  const x = BY[id], e = LOG[id] || {};
+  const sims = ITEMS.filter(y => y.id !== id).map(y => [y, similarity(x, y)]).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  const prog = e.status === "completed" ? x.vols : (e.progress || 0);
+  $("#sheet").className = "sheet " + demoClass(x.demo);
+  $("#sheet").innerHTML = `
+    <div class="label" style="background:repeating-linear-gradient(90deg,var(--demo) 0 14px,color-mix(in srgb,var(--demo) 80%,#000) 14px 16px);color:#0b0c22;font-family:var(--f-osd);font-size:.75rem">
+      <span>${esc(x.demo || "General")} · #${x.rank} BEST-SELLING</span><button class="closex" id="close" aria-label="Close">✕ CLOSE</button></div>
+    <div class="inner">
+      <div><h2 id="d-title">${esc(x.title)}</h2><div class="tagline">${esc(x.creators)}</div></div>
+      <div class="facts">
+        <div class="fact"><div class="k">VOLUMES</div><div class="v">${x.vols}</div></div>
+        <div class="fact"><div class="k">RUN</div><div class="v">${years(x)}</div></div>
+        <div class="fact"><div class="k">STATUS</div><div class="v">${x.pub}</div></div>
+        <div class="fact"><div class="k">SOLD</div><div class="v">${x.sales}M copies</div></div>
+      </div>
+      <div class="tags">${x.tags.map(t => `<button class="tag" data-tag="${t}">${t}</button>`).join("")}</div>
+      <div><span class="ctl-label">MY STATUS</span><div class="seg" id="d-status">${STATUSES.map(([k, l]) => `<button class="st-${k}" data-status="${k}" aria-pressed="${e.status === k}">${l}</button>`).join("")}</div></div>
+      <div><span class="ctl-label">MY SCORE</span><div class="rate" id="d-rate">${Array.from({ length: 10 }, (_, i) => `<button data-rate="${i + 1}" class="${e.rating >= i + 1 ? "on" : ""}" aria-pressed="${e.rating === i + 1}" aria-label="Score ${i + 1} of 10">${i + 1}</button>`).join("")}</div>
+        <div class="rate-hint"><span>1 · not for me</span><span>${e.rating ? `★ ${e.rating}/10 · tap again to clear` : "not rated"}</span><span>10 · masterpiece</span></div></div>
+      <div><span class="ctl-label" id="lbl-prog">VOLUMES READ</span><div class="prog"><input id="d-prog" type="number" min="0" max="${x.vols}" value="${prog}" aria-labelledby="lbl-prog"><span class="meta" style="font-family:var(--f-osd);color:var(--dim)">of ${x.vols}</span><span class="bar"><i style="width:${Math.min(100, 100 * prog / x.vols)}%"></i></span></div></div>
+      <div><label class="ctl-label" for="d-notes">NOTES</label><textarea id="d-notes" placeholder="Favorite arc, where you stopped, who recommended it…">${esc(e.notes || "")}</textarea></div>
+      <div><span class="ctl-label">SIMILAR THEMES</span><div class="similar">${sims.map(([y, s]) => `<button class="simrow" data-open="${y.id}"><span>${esc(y.title)}${LOG[y.id]?.status ? ` <span class="status st-${LOG[y.id].status}">${STATUS_LABEL[LOG[y.id].status]}</span>` : ""}</span><span class="pct">${Math.round(s * 100)}% MATCH</span></button>`).join("")}</div></div>
+      <div class="sheet-foot">${LOG[id] ? (confirmClear ? `<span class="confirm">Remove this title from your log? <button class="btn" id="clear-yes">Remove</button><button class="btn ghost" id="clear-no">Keep</button></span>` : `<button class="linkbtn" id="clear-entry">Remove from my log</button>`) : "<span></span>"}<button class="btn ghost" id="close2">Done</button></div>
+    </div>`;
+}
+function openDetail(id) { openId = id; confirmClear = false; renderDetail(id); const d = $("#detail"); if (!d.open) d.showModal(); }
+
+let notesTimer = null;
+$("#detail").addEventListener("click", ev => {
+  const t = ev.target.closest("button, [data-tag]");
+  if (ev.target === $("#detail")) return $("#detail").close();
+  if (!t) return;
+  if (t.id === "close" || t.id === "close2") return $("#detail").close();
+  if (t.dataset.status) return updateEntry(openId, { status: LOG[openId]?.status === t.dataset.status ? null : t.dataset.status });
+  if (t.dataset.rate) { const r = +t.dataset.rate; updateEntry(openId, { rating: LOG[openId]?.rating === r ? null : r }); return toast(LOG[openId]?.rating ? `Scored ${r}/10` : "Score cleared"); }
+  if (t.dataset.open) return openDetail(t.dataset.open);
+  if (t.dataset.tag) { $("#detail").close(); return filterTag(t.dataset.tag); }
+  if (t.id === "clear-entry") { confirmClear = true; return renderDetail(openId); }
+  if (t.id === "clear-no") { confirmClear = false; return renderDetail(openId); }
+  if (t.id === "clear-yes") { delete LOG[openId]; persist(openId); confirmClear = false; renderAll(); return toast("Removed from your log"); }
+});
+$("#detail").addEventListener("change", ev => {
+  if (ev.target.id === "d-prog") {
+    const x = BY[openId]; let v = Math.max(0, Math.min(x.vols, Math.round(+ev.target.value || 0)));
+    const patch = { progress: v };
+    if (v === x.vols && LOG[openId]?.status !== "completed") patch.status = "completed";
+    else if (v > 0 && !LOG[openId]?.status) patch.status = "in_progress";
+    updateEntry(openId, patch);
+  }
+});
+$("#detail").addEventListener("input", ev => {
+  if (ev.target.id !== "d-notes") return;
+  const id = openId, val = ev.target.value;
+  clearTimeout(notesTimer);
+  notesTimer = setTimeout(() => { const cur = LOG[id] || {}; LOG[id] = { status: null, rating: null, progress: null, ...cur, notes: val, updated: Date.now() }; persist(id); }, 600);
+});
+$("#detail").addEventListener("close", () => { clearTimeout(notesTimer); const n = $("#d-notes"); if (n && openId && (LOG[openId]?.notes || "") !== n.value) updateEntry(openId, { notes: n.value }); openId = null; });
+
+/* ---------- navigation + filters ---------- */
+const VIEWS = ["library", "log", "for-you"];
+function show(v) {
+  if (!VIEWS.includes(v)) v = "library";
+  VIEWS.forEach(n => { $("#view-" + n).hidden = n !== v; $("#tab-" + n).setAttribute("aria-selected", n === v); });
+}
+function go(v) { if (location.hash !== "#" + v) location.hash = v; show(v); }
+window.addEventListener("hashchange", () => show(location.hash.slice(1)));
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => go(b.dataset.view)));
+function filterTag(t) { $("#f-tag").value = t; go("library"); renderLibrary(); window.scrollTo({ top: 0 }); }
+
+document.addEventListener("click", ev => {
+  if (ev.target.closest("dialog")) return;
+  const tag = ev.target.closest("[data-tag]");
+  if (tag) { ev.preventDefault(); ev.stopPropagation(); return filterTag(tag.dataset.tag); }
+  const g = ev.target.closest("[data-go]"); if (g) return go(g.dataset.go);
+  if (ev.target.id === "clear") { ["#q", "#f-tag", "#f-demo", "#f-status"].forEach(s => $(s).value = ""); return renderLibrary(); }
+  const c = ev.target.closest("[data-id]"); if (c) openDetail(c.dataset.id);
+});
+["#q", "#f-tag", "#f-demo", "#f-status", "#f-sort"].forEach(s => $(s).addEventListener("input", renderLibrary));
+
+let toastT = null;
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 1600); }
+
+/* VCR counter */
+const t0 = Date.now();
+setInterval(() => { const s = Math.floor((Date.now() - t0) / 1000); $("#osd-clock").textContent = `SP ${Math.floor(s / 3600)}:${String(Math.floor(s / 60) % 60).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; }, 1000);
+
+show(location.hash.slice(1));
+renderAll();
+connectRemote();
+</script>
+
+</body>
+</html>
