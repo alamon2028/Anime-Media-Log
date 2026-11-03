@@ -1,0 +1,8542 @@
+{
+  "schema_version": 1,
+  "generated": "2026-11-01",
+  "sources": [
+    {
+      "name": "Wikipedia: List of best-selling manga",
+      "url": "https://en.wikipedia.org/wiki/List_of_best-selling_manga",
+      "retrieved": "2026-11-01",
+      "notes": "All series with 20M+ collected tankōbon copies. Sales rank follows the article's order (ties alphabetical)."
+    }
+  ],
+  "enums": {
+    "media_type": [
+      "manga",
+      "anime_series",
+      "anime_film",
+      "light_novel",
+      "video_game"
+    ],
+    "user.status": [
+      "planned",
+      "in_progress",
+      "completed",
+      "dropped",
+      "on_hold"
+    ]
+  },
+  "items": [
+    {
+      "id": "one-piece",
+      "title": "One Piece",
+      "media_type": "manga",
+      "creators": [
+        "Eiichiro Oda"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 115,
+      "serialization": {
+        "display": "1997–present",
+        "start_year": 1997,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 1,
+        "approx_sales_millions": 600.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "comedy",
+        "pirates"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "doraemon",
+      "title": "Doraemon",
+      "media_type": "manga",
+      "creators": [
+        "Fujiko F. Fujio"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Children"
+      ],
+      "volumes": 45,
+      "serialization": {
+        "display": "1969–1996",
+        "start_year": 1969,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 2,
+        "approx_sales_millions": 300.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "sci-fi",
+        "slice-of-life",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "golgo-13",
+      "title": "Golgo 13",
+      "media_type": "manga",
+      "creators": [
+        "Takao Saito",
+        "Saito Production"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 221,
+      "serialization": {
+        "display": "1968–present",
+        "start_year": 1968,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 3,
+        "approx_sales_millions": 300.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "case-closed-detective-conan",
+      "title": "Case Closed / Detective Conan",
+      "media_type": "manga",
+      "creators": [
+        "Gosho Aoyama"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 108,
+      "serialization": {
+        "display": "1994–present",
+        "start_year": 1994,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 4,
+        "approx_sales_millions": 270.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mystery",
+        "detective",
+        "crime"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dragon-ball",
+      "title": "Dragon Ball",
+      "media_type": "manga",
+      "creators": [
+        "Akira Toriyama"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 42,
+      "serialization": {
+        "display": "1984–1995",
+        "start_year": 1984,
+        "end_year": 1995,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 5,
+        "approx_sales_millions": 260.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "martial-arts",
+        "comedy",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "naruto",
+      "title": "Naruto",
+      "media_type": "manga",
+      "creators": [
+        "Masashi Kishimoto"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 72,
+      "serialization": {
+        "display": "1999–2014",
+        "start_year": 1999,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 6,
+        "approx_sales_millions": 250.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "ninja",
+        "martial-arts"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "demon-slayer-kimetsu-no-yaiba",
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "media_type": "manga",
+      "creators": [
+        "Koyoharu Gotouge"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "2016–2020",
+        "start_year": 2016,
+        "end_year": 2020,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 7,
+        "approx_sales_millions": 220.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "historical",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "slam-dunk",
+      "title": "Slam Dunk",
+      "media_type": "manga",
+      "creators": [
+        "Takehiko Inoue"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "1990–1996",
+        "start_year": 1990,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 8,
+        "approx_sales_millions": 185.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "basketball",
+        "comedy",
+        "school",
+        "delinquent"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kochikame-tokyo-beat-cops",
+      "title": "KochiKame: Tokyo Beat Cops",
+      "media_type": "manga",
+      "creators": [
+        "Osamu Akimoto"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 201,
+      "serialization": {
+        "display": "1976–2016",
+        "start_year": 1976,
+        "end_year": 2016,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 9,
+        "approx_sales_millions": 157.2,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "workplace",
+        "police"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "jujutsu-kaisen",
+      "title": "Jujutsu Kaisen",
+      "media_type": "manga",
+      "creators": [
+        "Gege Akutami"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "2018–2024",
+        "start_year": 2018,
+        "end_year": 2024,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 10,
+        "approx_sales_millions": 150.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "horror",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "crayon-shin-chan",
+      "title": "Crayon Shin-chan",
+      "media_type": "manga",
+      "creators": [
+        "Yoshito Usui",
+        "UY Team"
+      ],
+      "publishers": [
+        "Futabasha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 65,
+      "serialization": {
+        "display": "1990–present",
+        "start_year": 1990,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 11,
+        "approx_sales_millions": 148.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "slice-of-life",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "attack-on-titan",
+      "title": "Attack on Titan",
+      "media_type": "manga",
+      "creators": [
+        "Hajime Isayama"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "2009–2021",
+        "start_year": 2009,
+        "end_year": 2021,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 12,
+        "approx_sales_millions": 140.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "dark-fantasy",
+        "drama",
+        "military",
+        "mystery"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "oishinbo",
+      "title": "Oishinbo",
+      "media_type": "manga",
+      "creators": [
+        "Tetsu Kariya",
+        "Akira Hanasaki"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 111,
+      "serialization": {
+        "display": "1983–2014 (on hiatus)",
+        "start_year": 1983,
+        "end_year": 2014,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 13,
+        "approx_sales_millions": 135.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "cooking",
+        "drama",
+        "workplace"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "bleach",
+      "title": "Bleach",
+      "media_type": "manga",
+      "creators": [
+        "Tite Kubo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 74,
+      "serialization": {
+        "display": "2001–2016",
+        "start_year": 2001,
+        "end_year": 2016,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 14,
+        "approx_sales_millions": 130.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "jojo-s-bizarre-adventure",
+      "title": "JoJo's Bizarre Adventure",
+      "media_type": "manga",
+      "creators": [
+        "Hirohiko Araki"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 139,
+      "serialization": {
+        "display": "1987–present",
+        "start_year": 1987,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 15,
+        "approx_sales_millions": 120.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "supernatural",
+        "mystery"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kingdom",
+      "title": "Kingdom",
+      "media_type": "manga",
+      "creators": [
+        "Yasuhisa Hara"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 79,
+      "serialization": {
+        "display": "2006–present",
+        "start_year": 2006,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 16,
+        "approx_sales_millions": 120.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "historical",
+        "war",
+        "military"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "astro-boy",
+      "title": "Astro Boy",
+      "media_type": "manga",
+      "creators": [
+        "Osamu Tezuka"
+      ],
+      "publishers": [
+        "Kobunsha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "1952–1968",
+        "start_year": 1952,
+        "end_year": 1968,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 17,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "sci-fi",
+        "action",
+        "robots",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "baki-the-grappler",
+      "title": "Baki the Grappler",
+      "media_type": "manga",
+      "creators": [
+        "Keisuke Itagaki"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 156,
+      "serialization": {
+        "display": "1991–present",
+        "start_year": 1991,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 18,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "martial-arts"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fist-of-the-north-star",
+      "title": "Fist of the North Star",
+      "media_type": "manga",
+      "creators": [
+        "Buronson",
+        "Tetsuo Hara"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "1983–1988",
+        "start_year": 1983,
+        "end_year": 1988,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 19,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "martial-arts",
+        "post-apocalyptic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hajime-no-ippo",
+      "title": "Hajime no Ippo",
+      "media_type": "manga",
+      "creators": [
+        "George Morikawa"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 145,
+      "serialization": {
+        "display": "1989–present",
+        "start_year": 1989,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 20,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "boxing",
+        "martial-arts",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hunter-x-hunter",
+      "title": "Hunter × Hunter",
+      "media_type": "manga",
+      "creators": [
+        "Yoshihiro Togashi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 39,
+      "serialization": {
+        "display": "1998–present",
+        "start_year": 1998,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 21,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-kindaichi-case-files",
+      "title": "The Kindaichi Case Files",
+      "media_type": "manga",
+      "creators": [
+        "Yōzaburō Kanari",
+        "Seimaru Amagi",
+        "Fumiya Satō"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 102,
+      "serialization": {
+        "display": "1992–present",
+        "start_year": 1992,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 22,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mystery",
+        "detective",
+        "crime",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "my-hero-academia",
+      "title": "My Hero Academia",
+      "media_type": "manga",
+      "creators": [
+        "Kōhei Horikoshi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 42,
+      "serialization": {
+        "display": "2014–2024",
+        "start_year": 2014,
+        "end_year": 2024,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 23,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "superhero",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "touch",
+      "title": "Touch",
+      "media_type": "manga",
+      "creators": [
+        "Mitsuru Adachi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 26,
+      "serialization": {
+        "display": "1981–1986",
+        "start_year": 1981,
+        "end_year": 1986,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 24,
+        "approx_sales_millions": 100.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "romance",
+        "drama",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "captain-tsubasa",
+      "title": "Captain Tsubasa",
+      "media_type": "manga",
+      "creators": [
+        "Yōichi Takahashi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 110,
+      "serialization": {
+        "display": "1981–2024",
+        "start_year": 1981,
+        "end_year": 2024,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 25,
+        "approx_sales_millions": 90.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "soccer"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fullmetal-alchemist",
+      "title": "Fullmetal Alchemist",
+      "media_type": "manga",
+      "creators": [
+        "Hiromu Arakawa"
+      ],
+      "publishers": [
+        "Enix",
+        "Square Enix"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "2001–2010",
+        "start_year": 2001,
+        "end_year": 2010,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 26,
+        "approx_sales_millions": 90.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "military",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sazae-san",
+      "title": "Sazae-san",
+      "media_type": "manga",
+      "creators": [
+        "Machiko Hasegawa"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [],
+      "volumes": 68,
+      "serialization": {
+        "display": "1946–1974",
+        "start_year": 1946,
+        "end_year": 1974,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 27,
+        "approx_sales_millions": 86.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kinnikuman",
+      "title": "Kinnikuman",
+      "media_type": "manga",
+      "creators": [
+        "Yudetamago"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 93,
+      "serialization": {
+        "display": "1979–1987, 2011–present",
+        "start_year": 1979,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 28,
+        "approx_sales_millions": 85.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "comedy",
+        "wrestling",
+        "martial-arts",
+        "superhero"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "vagabond",
+      "title": "Vagabond",
+      "media_type": "manga",
+      "creators": [
+        "Takehiko Inoue"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "1998–2015 (on hiatus)",
+        "start_year": 1998,
+        "end_year": 2015,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 29,
+        "approx_sales_millions": 82.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "martial-arts",
+        "drama",
+        "samurai"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sangokushi",
+      "title": "Sangokushi",
+      "media_type": "manga",
+      "creators": [
+        "Mitsuteru Yokoyama"
+      ],
+      "publishers": [
+        "Ushio Shuppansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 60,
+      "serialization": {
+        "display": "1971–1986",
+        "start_year": 1971,
+        "end_year": 1986,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 30,
+        "approx_sales_millions": 80.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "war",
+        "military",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tokyo-revengers",
+      "title": "Tokyo Revengers",
+      "media_type": "manga",
+      "creators": [
+        "Ken Wakui"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "2017–2022",
+        "start_year": 2017,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 31,
+        "approx_sales_millions": 80.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "delinquent",
+        "time-travel",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "haikyu",
+      "title": "Haikyu!!",
+      "media_type": "manga",
+      "creators": [
+        "Haruichi Furudate"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 45,
+      "serialization": {
+        "display": "2012–2020",
+        "start_year": 2012,
+        "end_year": 2020,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 32,
+        "approx_sales_millions": 75.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "volleyball",
+        "school",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "gintama",
+      "title": "Gintama",
+      "media_type": "manga",
+      "creators": [
+        "Hideaki Sorachi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 77,
+      "serialization": {
+        "display": "2003–2019",
+        "start_year": 2003,
+        "end_year": 2019,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 33,
+        "approx_sales_millions": 73.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "action",
+        "sci-fi",
+        "samurai"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fairy-tail",
+      "title": "Fairy Tail",
+      "media_type": "manga",
+      "creators": [
+        "Hiro Mashima"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 63,
+      "serialization": {
+        "display": "2006–2017",
+        "start_year": 2006,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 34,
+        "approx_sales_millions": 72.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "rurouni-kenshin",
+      "title": "Rurouni Kenshin",
+      "media_type": "manga",
+      "creators": [
+        "Nobuhiro Watsuki"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "1994–1999",
+        "start_year": 1994,
+        "end_year": 1999,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 35,
+        "approx_sales_millions": 72.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "historical",
+        "samurai",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "berserk",
+      "title": "Berserk",
+      "media_type": "manga",
+      "creators": [
+        "Kentaro Miura",
+        "Kouji Mori",
+        "Studio Gaga"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 43,
+      "serialization": {
+        "display": "1989–present",
+        "start_year": 1989,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 36,
+        "approx_sales_millions": 70.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "dark-fantasy",
+        "horror",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "major",
+      "title": "Major",
+      "media_type": "manga",
+      "creators": [
+        "Takuya Mitsuda"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 110,
+      "serialization": {
+        "display": "1994–present",
+        "start_year": 1994,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 37,
+        "approx_sales_millions": 66.66,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "blue-lock",
+      "title": "Blue Lock",
+      "media_type": "manga",
+      "creators": [
+        "Muneyuki Kaneshiro",
+        "Yusuke Nomura"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 39,
+      "serialization": {
+        "display": "2018–present",
+        "start_year": 2018,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 38,
+        "approx_sales_millions": 65.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "sports",
+        "soccer",
+        "psychological"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "that-time-i-got-reincarnated-as-a-slime",
+      "title": "That Time I Got Reincarnated as a Slime",
+      "media_type": "manga",
+      "creators": [
+        "Fuse",
+        "Taiki Kawakami"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 32,
+      "serialization": {
+        "display": "2015–present",
+        "start_year": 2015,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 39,
+        "approx_sales_millions": 62.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "isekai",
+        "adventure",
+        "comedy",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "boys-over-flowers",
+      "title": "Boys Over Flowers",
+      "media_type": "manga",
+      "creators": [
+        "Yoko Kamio"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "1992–2003",
+        "start_year": 1992,
+        "end_year": 2003,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 40,
+        "approx_sales_millions": 61.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "drama",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-prince-of-tennis",
+      "title": "The Prince of Tennis",
+      "media_type": "manga",
+      "creators": [
+        "Takeshi Konomi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 42,
+      "serialization": {
+        "display": "1999–2008",
+        "start_year": 1999,
+        "end_year": 2008,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 41,
+        "approx_sales_millions": 60.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "tennis",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "rokudenashi-blues",
+      "title": "Rokudenashi Blues",
+      "media_type": "manga",
+      "creators": [
+        "Masanori Morita"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 42,
+      "serialization": {
+        "display": "1988–1997",
+        "start_year": 1988,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 42,
+        "approx_sales_millions": 60.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "boxing",
+        "action",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-apothecary-diaries",
+      "title": "The Apothecary Diaries",
+      "media_type": "manga",
+      "creators": [
+        "Hyūganatsu",
+        "Minoji Kurata",
+        "Nekokurage"
+      ],
+      "publishers": [
+        "Square Enix",
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 39,
+      "serialization": {
+        "display": "2017–present",
+        "start_year": 2017,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 43,
+        "approx_sales_millions": 57.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "mystery",
+        "historical",
+        "drama",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "initial-d",
+      "title": "Initial D",
+      "media_type": "manga",
+      "creators": [
+        "Shuichi Shigeno"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 48,
+      "serialization": {
+        "display": "1995–2013",
+        "start_year": 1995,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 44,
+        "approx_sales_millions": 56.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "racing",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "bad-boys",
+      "title": "Bad Boys",
+      "media_type": "manga",
+      "creators": [
+        "Hiroshi Tanaka"
+      ],
+      "publishers": [
+        "Shōnen Gahōsha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 22,
+      "serialization": {
+        "display": "1988–1996",
+        "start_year": 1988,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 45,
+        "approx_sales_millions": 55.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "h2",
+      "title": "H2",
+      "media_type": "manga",
+      "creators": [
+        "Mitsuru Adachi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "1992–1999",
+        "start_year": 1992,
+        "end_year": 1999,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 46,
+        "approx_sales_millions": 55.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "romance",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ranma-half",
+      "title": "Ranma ½",
+      "media_type": "manga",
+      "creators": [
+        "Rumiko Takahashi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "1987–1996",
+        "start_year": 1987,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 47,
+        "approx_sales_millions": 55.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "martial-arts",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-seven-deadly-sins",
+      "title": "The Seven Deadly Sins",
+      "media_type": "manga",
+      "creators": [
+        "Nakaba Suzuki"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 68,
+      "serialization": {
+        "display": "2012–present",
+        "start_year": 2012,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 48,
+        "approx_sales_millions": 55.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shura-no-mon",
+      "title": "Shura no Mon",
+      "media_type": "manga",
+      "creators": [
+        "Masatoshi Kawahara"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "1987–1996",
+        "start_year": 1987,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 49,
+        "approx_sales_millions": 55.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "martial-arts",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "minami-no-tei",
+      "title": "Minami no Teiō",
+      "media_type": "manga",
+      "creators": [
+        "Dai Tennōji",
+        "Rikiya Gō"
+      ],
+      "publishers": [
+        "Nihon Bungeisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 188,
+      "serialization": {
+        "display": "1992–2026",
+        "start_year": 1992,
+        "end_year": 2026,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 50,
+        "approx_sales_millions": 53.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "super-radical-gag-family",
+      "title": "Super Radical Gag Family",
+      "media_type": "manga",
+      "creators": [
+        "Kenji Hamaoka"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 107,
+      "serialization": {
+        "display": "1993–present",
+        "start_year": 1993,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 51,
+        "approx_sales_millions": 51.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "city-hunter",
+      "title": "City Hunter",
+      "media_type": "manga",
+      "creators": [
+        "Tsukasa Hojo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 35,
+      "serialization": {
+        "display": "1985–1991",
+        "start_year": 1985,
+        "end_year": 1991,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 52,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "comedy",
+        "crime"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "cobra",
+      "title": "Cobra",
+      "media_type": "manga",
+      "creators": [
+        "Buichi Terasawa"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1978–1984",
+        "start_year": 1978,
+        "end_year": 1984,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 53,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sci-fi",
+        "action",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "devilman",
+      "title": "Devilman",
+      "media_type": "manga",
+      "creators": [
+        "Go Nagai"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 5,
+      "serialization": {
+        "display": "1972–1973",
+        "start_year": 1972,
+        "end_year": 1973,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 54,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "horror",
+        "action",
+        "supernatural",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dragon-quest-the-adventure-of-dai",
+      "title": "Dragon Quest: The Adventure of Dai",
+      "media_type": "manga",
+      "creators": [
+        "Riku Sanjo",
+        "Koji Inada"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "1989–1996",
+        "start_year": 1989,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 55,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "adventure",
+        "action",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fisherman-sanpei",
+      "title": "Fisherman Sanpei",
+      "media_type": "manga",
+      "creators": [
+        "Takao Yaguchi"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 65,
+      "serialization": {
+        "display": "1973–1983",
+        "start_year": 1973,
+        "end_year": 1983,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 56,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fishing",
+        "adventure",
+        "slice-of-life"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "glass-mask",
+      "title": "Glass Mask",
+      "media_type": "manga",
+      "creators": [
+        "Suzue Miuchi"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 49,
+      "serialization": {
+        "display": "1976–2012 (on hiatus)",
+        "start_year": 1976,
+        "end_year": 2012,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 57,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "drama",
+        "performing-arts"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "great-teacher-onizuka",
+      "title": "Great Teacher Onizuka",
+      "media_type": "manga",
+      "creators": [
+        "Tooru Fujisawa"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 25,
+      "serialization": {
+        "display": "1997–2002",
+        "start_year": 1997,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 58,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "drama",
+        "school",
+        "delinquent"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "inuyasha",
+      "title": "Inuyasha",
+      "media_type": "manga",
+      "creators": [
+        "Rumiko Takahashi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 56,
+      "serialization": {
+        "display": "1996–2008",
+        "start_year": 1996,
+        "end_year": 2008,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 59,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "fantasy",
+        "romance",
+        "supernatural",
+        "historical",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "nana",
+      "title": "Nana",
+      "media_type": "manga",
+      "creators": [
+        "Ai Yazawa"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 21,
+      "serialization": {
+        "display": "2000–2009 (on hiatus)",
+        "start_year": 2000,
+        "end_year": 2009,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 60,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "drama",
+        "romance",
+        "music"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "saint-seiya",
+      "title": "Saint Seiya",
+      "media_type": "manga",
+      "creators": [
+        "Masami Kurumada"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "1985–1990",
+        "start_year": 1985,
+        "end_year": 1990,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 61,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "fantasy",
+        "mythology",
+        "martial-arts"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shoot",
+      "title": "Shoot!",
+      "media_type": "manga",
+      "creators": [
+        "Tsukasa Ōshima"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 66,
+      "serialization": {
+        "display": "1990–2003",
+        "start_year": 1990,
+        "end_year": 2003,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 62,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "soccer",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yuyu-hakusho",
+      "title": "YuYu Hakusho",
+      "media_type": "manga",
+      "creators": [
+        "Yoshihiro Togashi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 19,
+      "serialization": {
+        "display": "1990–1994",
+        "start_year": 1990,
+        "end_year": 1994,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 63,
+        "approx_sales_millions": 50.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "martial-arts",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dokaben",
+      "title": "Dokaben",
+      "media_type": "manga",
+      "creators": [
+        "Shinji Mizushima"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 205,
+      "serialization": {
+        "display": "1972–2018",
+        "start_year": 1972,
+        "end_year": 2018,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 64,
+        "approx_sales_millions": 48.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "black-jack",
+      "title": "Black Jack",
+      "media_type": "manga",
+      "creators": [
+        "Osamu Tezuka"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 25,
+      "serialization": {
+        "display": "1973–1983",
+        "start_year": 1973,
+        "end_year": 1983,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 65,
+        "approx_sales_millions": 47.66,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "medical",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kosaku-shima",
+      "title": "Kosaku Shima",
+      "media_type": "manga",
+      "creators": [
+        "Kenshi Hirokane"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 92,
+      "serialization": {
+        "display": "1983–present",
+        "start_year": 1983,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 66,
+        "approx_sales_millions": 47.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "workplace",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tokyo-ghoul",
+      "title": "Tokyo Ghoul",
+      "media_type": "manga",
+      "creators": [
+        "Sui Ishida"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "2011–2018",
+        "start_year": 2011,
+        "end_year": 2018,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 67,
+        "approx_sales_millions": 47.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "horror",
+        "supernatural",
+        "dark-fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "crows",
+      "title": "Crows",
+      "media_type": "manga",
+      "creators": [
+        "Hiroshi Takahashi"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 26,
+      "serialization": {
+        "display": "1990–1998",
+        "start_year": 1990,
+        "end_year": 1998,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 68,
+        "approx_sales_millions": 46.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "action",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sailor-moon",
+      "title": "Sailor Moon",
+      "media_type": "manga",
+      "creators": [
+        "Naoko Takeuchi"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1991–1997",
+        "start_year": 1991,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 69,
+        "approx_sales_millions": 46.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "magical-girl",
+        "fantasy",
+        "romance",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shizukanaru-don-yakuza-side-story",
+      "title": "Shizukanaru Don – Yakuza Side Story",
+      "media_type": "manga",
+      "creators": [
+        "Tatsuo Nitta"
+      ],
+      "publishers": [
+        "Jitsugyo no Nihon Sha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 108,
+      "serialization": {
+        "display": "1988–2013",
+        "start_year": 1988,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 70,
+        "approx_sales_millions": 46.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "comedy",
+        "workplace"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ace-of-diamond",
+      "title": "Ace of Diamond",
+      "media_type": "manga",
+      "creators": [
+        "Yuji Terajima"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 81,
+      "serialization": {
+        "display": "2006–2022",
+        "start_year": 2006,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 71,
+        "approx_sales_millions": 45.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dear-boys",
+      "title": "Dear Boys",
+      "media_type": "manga",
+      "creators": [
+        "Hiroki Yagami"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 101,
+      "serialization": {
+        "display": "1989–present",
+        "start_year": 1989,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 72,
+        "approx_sales_millions": 45.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "basketball",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shonan-junai-gumi",
+      "title": "Shonan Junai Gumi",
+      "media_type": "manga",
+      "creators": [
+        "Tooru Fujisawa"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "1990–1996",
+        "start_year": 1990,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 73,
+        "approx_sales_millions": 45.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yu-gi-oh",
+      "title": "Yu-Gi-Oh!",
+      "media_type": "manga",
+      "creators": [
+        "Kazuki Takahashi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "1996–2004",
+        "start_year": 1996,
+        "end_year": 2004,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 74,
+        "approx_sales_millions": 44.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "games",
+        "action",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-promised-neverland",
+      "title": "The Promised Neverland",
+      "media_type": "manga",
+      "creators": [
+        "Kaiu Shirai",
+        "Posuka Demizu"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 20,
+      "serialization": {
+        "display": "2016–2020",
+        "start_year": 2016,
+        "end_year": 2020,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 75,
+        "approx_sales_millions": 43.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "thriller",
+        "mystery",
+        "dark-fantasy",
+        "psychological"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "spy-x-family",
+      "title": "Spy × Family",
+      "media_type": "manga",
+      "creators": [
+        "Tatsuya Endo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 17,
+      "serialization": {
+        "display": "2019–present",
+        "start_year": 2019,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 76,
+        "approx_sales_millions": 42.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "action",
+        "family",
+        "spy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shaman-king",
+      "title": "Shaman King",
+      "media_type": "manga",
+      "creators": [
+        "Hiroyuki Takei"
+      ],
+      "publishers": [
+        "Shueisha",
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 32,
+      "serialization": {
+        "display": "1998–2004",
+        "start_year": 1998,
+        "end_year": 2004,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 77,
+        "approx_sales_millions": 41.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "be-bop-high-school",
+      "title": "Be-Bop High School",
+      "media_type": "manga",
+      "creators": [
+        "Kazuhiro Kiuchi"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 48,
+      "serialization": {
+        "display": "1983–2003",
+        "start_year": 1983,
+        "end_year": 2003,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 78,
+        "approx_sales_millions": 40.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "cooking-papa",
+      "title": "Cooking Papa",
+      "media_type": "manga",
+      "creators": [
+        "Tochi Ueyama"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 178,
+      "serialization": {
+        "display": "1985–present",
+        "start_year": 1985,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 79,
+        "approx_sales_millions": 40.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "cooking",
+        "slice-of-life",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "crest-of-the-royal-family",
+      "title": "Crest of the Royal Family",
+      "media_type": "manga",
+      "creators": [
+        "Chieko Hosokawa"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 71,
+      "serialization": {
+        "display": "1976–present",
+        "start_year": 1976,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 80,
+        "approx_sales_millions": 40.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "historical",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ky-kara-ore-wa",
+      "title": "Kyō Kara Ore Wa!!",
+      "media_type": "manga",
+      "creators": [
+        "Hiroyuki Nishimori"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "1988–1997",
+        "start_year": 1988,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 81,
+        "approx_sales_millions": 40.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "nodame-cantabile",
+      "title": "Nodame Cantabile",
+      "media_type": "manga",
+      "creators": [
+        "Tomoko Ninomiya"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Josei"
+      ],
+      "volumes": 25,
+      "serialization": {
+        "display": "2001–2010",
+        "start_year": 2001,
+        "end_year": 2010,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 82,
+        "approx_sales_millions": 39.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "music",
+        "romance",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "one-punch-man",
+      "title": "One-Punch Man",
+      "media_type": "manga",
+      "creators": [
+        "One",
+        "Yusuke Murata"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "2012–present",
+        "start_year": 2012,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 83,
+        "approx_sales_millions": 38.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "comedy",
+        "superhero"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "black-butler",
+      "title": "Black Butler",
+      "media_type": "manga",
+      "creators": [
+        "Yana Toboso"
+      ],
+      "publishers": [
+        "Square Enix"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 35,
+      "serialization": {
+        "display": "2006–present",
+        "start_year": 2006,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 84,
+        "approx_sales_millions": 36.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mystery",
+        "supernatural",
+        "historical",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "chainsaw-man",
+      "title": "Chainsaw Man",
+      "media_type": "manga",
+      "creators": [
+        "Tatsuki Fujimoto"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 24,
+      "serialization": {
+        "display": "2018–2026",
+        "start_year": 2018,
+        "end_year": 2026,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 85,
+        "approx_sales_millions": 36.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "horror",
+        "dark-fantasy",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kimi-ni-todoke",
+      "title": "Kimi ni Todoke",
+      "media_type": "manga",
+      "creators": [
+        "Karuho Shiina"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "2005–2017",
+        "start_year": 2005,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 86,
+        "approx_sales_millions": 36.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "romance",
+        "school",
+        "slice-of-life"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-chef",
+      "title": "The Chef",
+      "media_type": "manga",
+      "creators": [
+        "Mai Tsurugina",
+        "Tadashi Katou"
+      ],
+      "publishers": [
+        "Nihon Bungeisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 41,
+      "serialization": {
+        "display": "1985–1993",
+        "start_year": 1985,
+        "end_year": 1993,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 87,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "cooking",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "chibi-maruko-chan",
+      "title": "Chibi Maruko-chan",
+      "media_type": "manga",
+      "creators": [
+        "Momoko Sakura"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1986–2022",
+        "start_year": 1986,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 88,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "frieren-beyond-journey-s-end",
+      "title": "Frieren: Beyond Journey's End",
+      "media_type": "manga",
+      "creators": [
+        "Kanehito Yamada",
+        "Tsukasa Abe"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 15,
+      "serialization": {
+        "display": "2020–present",
+        "start_year": 2020,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 89,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "adventure",
+        "drama",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "itazura-na-kiss",
+      "title": "Itazura na Kiss",
+      "media_type": "manga",
+      "creators": [
+        "Kaoru Tada"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "1990–1999",
+        "start_year": 1990,
+        "end_year": 1999,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 90,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "salary-man-kintaro",
+      "title": "Salary Man Kintaro",
+      "media_type": "manga",
+      "creators": [
+        "Hiroshi Motomiya"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "1994–2002",
+        "start_year": 1994,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 91,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "workplace",
+        "action",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "space-brothers",
+      "title": "Space Brothers",
+      "media_type": "manga",
+      "creators": [
+        "Chūya Koyama"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 46,
+      "serialization": {
+        "display": "2007–2026",
+        "start_year": 2007,
+        "end_year": 2026,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 92,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "sci-fi",
+        "drama",
+        "workplace"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "urusei-yatsura",
+      "title": "Urusei Yatsura",
+      "media_type": "manga",
+      "creators": [
+        "Rumiko Takahashi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "1978–1987",
+        "start_year": 1978,
+        "end_year": 1987,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 93,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "romance",
+        "sci-fi"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "worst",
+      "title": "Worst",
+      "media_type": "manga",
+      "creators": [
+        "Hiroshi Takahashi"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 33,
+      "serialization": {
+        "display": "2002–2013",
+        "start_year": 2002,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 94,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "action",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yowamushi-pedal",
+      "title": "Yowamushi Pedal",
+      "media_type": "manga",
+      "creators": [
+        "Wataru Watanabe"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 101,
+      "serialization": {
+        "display": "2008–present",
+        "start_year": 2008,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 95,
+        "approx_sales_millions": 35.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "cycling",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "3x3-eyes",
+      "title": "3×3 Eyes",
+      "media_type": "manga",
+      "creators": [
+        "Yuzo Takada"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 40,
+      "serialization": {
+        "display": "1987–2002",
+        "start_year": 1987,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 96,
+        "approx_sales_millions": 33.33,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "supernatural",
+        "action",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kaze-densetsu-bukkomi-no-taku",
+      "title": "Kaze Densetsu: Bukkomi no Taku",
+      "media_type": "manga",
+      "creators": [
+        "Hiroto Saki",
+        "Juzo Tokoro"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "1991–1997",
+        "start_year": 1991,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 97,
+        "approx_sales_millions": 33.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "racing",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hell-teacher-jigoku-sensei-nube",
+      "title": "Hell Teacher: Jigoku Sensei Nube",
+      "media_type": "manga",
+      "creators": [
+        "Shō Makura",
+        "Takeshi Okano"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "1993–1999",
+        "start_year": 1993,
+        "end_year": 1999,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 98,
+        "approx_sales_millions": 32.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "supernatural",
+        "horror",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-silent-service",
+      "title": "The Silent Service",
+      "media_type": "manga",
+      "creators": [
+        "Kaiji Kawaguchi"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 32,
+      "serialization": {
+        "display": "1988–1996",
+        "start_year": 1988,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 99,
+        "approx_sales_millions": 32.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "military",
+        "thriller"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "a-certain-magical-index",
+      "title": "A Certain Magical Index",
+      "media_type": "manga",
+      "creators": [
+        "Kazuma Kamachi"
+      ],
+      "publishers": [
+        "Square Enix"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 33,
+      "serialization": {
+        "display": "2007–present",
+        "start_year": 2007,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 100,
+        "approx_sales_millions": 31.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "sci-fi",
+        "magic",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kuroko-s-basketball",
+      "title": "Kuroko's Basketball",
+      "media_type": "manga",
+      "creators": [
+        "Tadatoshi Fujimaki"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "2008–2014",
+        "start_year": 2008,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 101,
+        "approx_sales_millions": 31.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "basketball",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "bastard",
+      "title": "Bastard!!",
+      "media_type": "manga",
+      "creators": [
+        "Kazushi Hagiwara"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Seinen"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "1988–2012 (on hiatus)",
+        "start_year": 1988,
+        "end_year": 2012,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 102,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "action",
+        "magic",
+        "dark-fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "chameleon",
+      "title": "Chameleon",
+      "media_type": "manga",
+      "creators": [
+        "Atsushi Kase"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 47,
+      "serialization": {
+        "display": "1990–2000",
+        "start_year": 1990,
+        "end_year": 2000,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 103,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "death-note",
+      "title": "Death Note",
+      "media_type": "manga",
+      "creators": [
+        "Tsugumi Ohba",
+        "Takeshi Obata"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 12,
+      "serialization": {
+        "display": "2003–2006",
+        "start_year": 2003,
+        "end_year": 2006,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 104,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "thriller",
+        "psychological",
+        "supernatural",
+        "mystery"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dr-slump",
+      "title": "Dr. Slump",
+      "media_type": "manga",
+      "creators": [
+        "Akira Toriyama"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1980–1984",
+        "start_year": 1980,
+        "end_year": 1984,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 105,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "sci-fi"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-fable",
+      "title": "The Fable",
+      "media_type": "manga",
+      "creators": [
+        "Katsuhisa Minami"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 36,
+      "serialization": {
+        "display": "2014–present",
+        "start_year": 2014,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 106,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "crime",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fruits-basket",
+      "title": "Fruits Basket",
+      "media_type": "manga",
+      "creators": [
+        "Natsuki Takaya"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "1998–2006",
+        "start_year": 1998,
+        "end_year": 2006,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 107,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "drama",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "gaki-deka",
+      "title": "Gaki Deka",
+      "media_type": "manga",
+      "creators": [
+        "Tatsuhiko Yamagami"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 26,
+      "serialization": {
+        "display": "1974–1980",
+        "start_year": 1974,
+        "end_year": 1980,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 108,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "golden-kamuy",
+      "title": "Golden Kamuy",
+      "media_type": "manga",
+      "creators": [
+        "Satoru Noda"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 31,
+      "serialization": {
+        "display": "2014–2022",
+        "start_year": 2014,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 109,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "adventure",
+        "historical",
+        "action",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "jarinko-chie",
+      "title": "Jarinko Chie",
+      "media_type": "manga",
+      "creators": [
+        "Etsumi Haruki"
+      ],
+      "publishers": [
+        "Futabasha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 67,
+      "serialization": {
+        "display": "1978–1997",
+        "start_year": 1978,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 110,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "family"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "jingi",
+      "title": "Jingi",
+      "media_type": "manga",
+      "creators": [
+        "Tachihara Ayumi"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 66,
+      "serialization": {
+        "display": "1988–2017",
+        "start_year": 1988,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 111,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kaiji",
+      "title": "Kaiji",
+      "media_type": "manga",
+      "creators": [
+        "Nobuyuki Fukumoto"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 91,
+      "serialization": {
+        "display": "1996–present",
+        "start_year": 1996,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 112,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "psychological",
+        "thriller",
+        "gambling"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "pok-mon-adventures",
+      "title": "Pokémon Adventures",
+      "media_type": "manga",
+      "creators": [
+        "Hidenori Kusaka",
+        "Mato",
+        "Satoshi Yamamoto"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Children"
+      ],
+      "volumes": 64,
+      "serialization": {
+        "display": "1997–present",
+        "start_year": 1997,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 113,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "adventure",
+        "fantasy",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "reborn",
+      "title": "Reborn!",
+      "media_type": "manga",
+      "creators": [
+        "Akira Amano"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 42,
+      "serialization": {
+        "display": "2004–2012",
+        "start_year": 2004,
+        "end_year": 2012,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 114,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "comedy",
+        "crime"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tokimeki-tonight",
+      "title": "Tokimeki Tonight",
+      "media_type": "manga",
+      "creators": [
+        "Koi Ikeno"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 30,
+      "serialization": {
+        "display": "1982–1994",
+        "start_year": 1982,
+        "end_year": 1994,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 115,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "supernatural",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "toriko",
+      "title": "Toriko",
+      "media_type": "manga",
+      "creators": [
+        "Mitsutoshi Shimabukuro"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 43,
+      "serialization": {
+        "display": "2008–2016",
+        "start_year": 2008,
+        "end_year": 2016,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 116,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "cooking"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ushio-and-tora",
+      "title": "Ushio and Tora",
+      "media_type": "manga",
+      "creators": [
+        "Kazuhiro Fujita"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 33,
+      "serialization": {
+        "display": "1990–1996",
+        "start_year": 1990,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 117,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "yawara",
+      "title": "Yawara!",
+      "media_type": "manga",
+      "creators": [
+        "Naoki Urasawa"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 29,
+      "serialization": {
+        "display": "1986–1993",
+        "start_year": 1986,
+        "end_year": 1993,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 118,
+        "approx_sales_millions": 30.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "martial-arts",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "futari-ecchi",
+      "title": "Futari Ecchi",
+      "media_type": "manga",
+      "creators": [
+        "Katsu Aki"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 95,
+      "serialization": {
+        "display": "1997–present",
+        "start_year": 1997,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 119,
+        "approx_sales_millions": 29.5,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "mature"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "chihayafuru",
+      "title": "Chihayafuru",
+      "media_type": "manga",
+      "creators": [
+        "Yuki Suetsugu"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Josei"
+      ],
+      "volumes": 50,
+      "serialization": {
+        "display": "2007–2022",
+        "start_year": 2007,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 120,
+        "approx_sales_millions": 29.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "games",
+        "drama",
+        "romance",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "shonan-bakusozoku",
+      "title": "Shonan Bakusozoku",
+      "media_type": "manga",
+      "creators": [
+        "Satoshi Yoshida"
+      ],
+      "publishers": [
+        "Shōnen Gahōsha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 16,
+      "serialization": {
+        "display": "1982–1988",
+        "start_year": 1982,
+        "end_year": 1988,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 121,
+        "approx_sales_millions": 29.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "asari-chan",
+      "title": "Asari-chan",
+      "media_type": "manga",
+      "creators": [
+        "Mayumi Muroyama"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 100,
+      "serialization": {
+        "display": "1978–2014",
+        "start_year": 1978,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 122,
+        "approx_sales_millions": 28.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "family",
+        "slice-of-life"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "assassination-classroom",
+      "title": "Assassination Classroom",
+      "media_type": "manga",
+      "creators": [
+        "Yūsei Matsui"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 21,
+      "serialization": {
+        "display": "2012–2016",
+        "start_year": 2012,
+        "end_year": 2016,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 123,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "action",
+        "school",
+        "sci-fi"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "d-gray-man",
+      "title": "D.Gray-man",
+      "media_type": "manga",
+      "creators": [
+        "Katsura Hoshino"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 29,
+      "serialization": {
+        "display": "2004–present",
+        "start_year": 2004,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 124,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "dark-fantasy",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "eyeshield-21",
+      "title": "Eyeshield 21",
+      "media_type": "manga",
+      "creators": [
+        "Riichiro Inagaki",
+        "Yusuke Murata"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "2002–2009",
+        "start_year": 2002,
+        "end_year": 2009,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 125,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "sports",
+        "football",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sakigake-otokojuku",
+      "title": "Sakigake!! Otokojuku",
+      "media_type": "manga",
+      "creators": [
+        "Akira Miyashita"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "1985–1991",
+        "start_year": 1985,
+        "end_year": 1991,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 126,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "martial-arts",
+        "action",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "seito-shokun",
+      "title": "Seito Shokun!",
+      "media_type": "manga",
+      "creators": [
+        "Yoko Shoji"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōjo",
+        "Josei"
+      ],
+      "volumes": 79,
+      "serialization": {
+        "display": "1977–2019",
+        "start_year": 1977,
+        "end_year": 2019,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 127,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "drama",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "y-kan-club",
+      "title": "Yūkan Club",
+      "media_type": "manga",
+      "creators": [
+        "Yukari Ichijo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 19,
+      "serialization": {
+        "display": "1982–2002",
+        "start_year": 1982,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 128,
+        "approx_sales_millions": 27.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "mystery",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "20th-century-boys",
+      "title": "20th Century Boys",
+      "media_type": "manga",
+      "creators": [
+        "Naoki Urasawa"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 22,
+      "serialization": {
+        "display": "1999–2006",
+        "start_year": 1999,
+        "end_year": 2006,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 129,
+        "approx_sales_millions": 26.4,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mystery",
+        "thriller",
+        "sci-fi"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "bari-bari-densetsu",
+      "title": "Bari Bari Densetsu",
+      "media_type": "manga",
+      "creators": [
+        "Shuichi Shigeno"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "1983–1991",
+        "start_year": 1983,
+        "end_year": 1991,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 130,
+        "approx_sales_millions": 26.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "racing",
+        "drama",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tsuribaka-nisshi",
+      "title": "Tsuribaka Nisshi",
+      "media_type": "manga",
+      "creators": [
+        "Jūzō Yamasaki",
+        "Kenichi Kitami"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 118,
+      "serialization": {
+        "display": "1979–present",
+        "start_year": 1979,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 131,
+        "approx_sales_millions": 26.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "fishing",
+        "workplace"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "angel-heart",
+      "title": "Angel Heart",
+      "media_type": "manga",
+      "creators": [
+        "Tsukasa Hojo"
+      ],
+      "publishers": [
+        "Shinchosha",
+        "Tokuma Shoten"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 49,
+      "serialization": {
+        "display": "2001–2017",
+        "start_year": 2001,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 132,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "drama",
+        "crime"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "aoashi",
+      "title": "Aoashi",
+      "media_type": "manga",
+      "creators": [
+        "Yugo Kobayashi",
+        "Naohiko Ueno"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 40,
+      "serialization": {
+        "display": "2015–2025",
+        "start_year": 2015,
+        "end_year": 2025,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 133,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "sports",
+        "soccer",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ashita-no-joe",
+      "title": "Ashita no Joe",
+      "media_type": "manga",
+      "creators": [
+        "Ikki Kajiwara",
+        "Tetsuya Chiba"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 20,
+      "serialization": {
+        "display": "1968–1973",
+        "start_year": 1968,
+        "end_year": 1973,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 134,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "boxing",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "black-clover",
+      "title": "Black Clover",
+      "media_type": "manga",
+      "creators": [
+        "Yūki Tabata"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "2015–2026",
+        "start_year": 2015,
+        "end_year": 2026,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 135,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "fantasy",
+        "magic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "blue-exorcist",
+      "title": "Blue Exorcist",
+      "media_type": "manga",
+      "creators": [
+        "Kazue Kato"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "2009–present",
+        "start_year": 2009,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 136,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "demons",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "boys-be",
+      "title": "Boys Be...",
+      "media_type": "manga",
+      "creators": [
+        "Masahiro Itabashi",
+        "Hiroyuki Tamakoshi"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 58,
+      "serialization": {
+        "display": "1991–2001",
+        "start_year": 1991,
+        "end_year": 2001,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 137,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "emblem-take-2",
+      "title": "Emblem Take 2",
+      "media_type": "manga",
+      "creators": [
+        "Kazumasa Kiuchi",
+        "Jun Watanabe"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 62,
+      "serialization": {
+        "display": "1990–2004",
+        "start_year": 1990,
+        "end_year": 2004,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 138,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "flame-of-recca",
+      "title": "Flame of Recca",
+      "media_type": "manga",
+      "creators": [
+        "Nobuyuki Anzai"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 33,
+      "serialization": {
+        "display": "1995–2002",
+        "start_year": 1995,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 139,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "martial-arts",
+        "ninja",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fushigi-y-gi",
+      "title": "Fushigi Yûgi",
+      "media_type": "manga",
+      "creators": [
+        "Yuu Watase"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōjo",
+        "Josei"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "1991–present",
+        "start_year": 1991,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 140,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "romance",
+        "isekai"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hikaru-no-go",
+      "title": "Hikaru no Go",
+      "media_type": "manga",
+      "creators": [
+        "Yumi Hotta",
+        "Takeshi Obata"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "1998–2003",
+        "start_year": 1998,
+        "end_year": 2003,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 141,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "games",
+        "drama",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "magi-the-labyrinth-of-magic",
+      "title": "Magi: The Labyrinth of Magic",
+      "media_type": "manga",
+      "creators": [
+        "Shinobu Ohtaka"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "2009–2017",
+        "start_year": 2009,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 142,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "adventure",
+        "fantasy",
+        "magic",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "maison-ikkoku",
+      "title": "Maison Ikkoku",
+      "media_type": "manga",
+      "creators": [
+        "Rumiko Takahashi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 15,
+      "serialization": {
+        "display": "1980–1987",
+        "start_year": 1980,
+        "end_year": 1987,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 143,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "slice-of-life"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "miyuki",
+      "title": "Miyuki",
+      "media_type": "manga",
+      "creators": [
+        "Mitsuru Adachi"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 12,
+      "serialization": {
+        "display": "1980–1984",
+        "start_year": 1980,
+        "end_year": 1984,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 144,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "neon-genesis-evangelion",
+      "title": "Neon Genesis Evangelion",
+      "media_type": "manga",
+      "creators": [
+        "Yoshiyuki Sadamoto"
+      ],
+      "publishers": [
+        "Kadokawa Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 14,
+      "serialization": {
+        "display": "1994–2013",
+        "start_year": 1994,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 145,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "mecha",
+        "sci-fi",
+        "psychological"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "oh-my-goddess",
+      "title": "Oh My Goddess!",
+      "media_type": "manga",
+      "creators": [
+        "Kōsuke Fujishima"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 48,
+      "serialization": {
+        "display": "1988–2014",
+        "start_year": 1988,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 146,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "oshi-no-ko",
+      "title": "Oshi no Ko",
+      "media_type": "manga",
+      "creators": [
+        "Aka Akasaka",
+        "Mengo Yokoyari"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 16,
+      "serialization": {
+        "display": "2020–2024",
+        "start_year": 2020,
+        "end_year": 2024,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 147,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "drama",
+        "mystery",
+        "showbiz"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "patalliro",
+      "title": "Patalliro!",
+      "media_type": "manga",
+      "creators": [
+        "Mineo Maya"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 104,
+      "serialization": {
+        "display": "1979–present",
+        "start_year": 1979,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 148,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "parasyte",
+      "title": "Parasyte",
+      "media_type": "manga",
+      "creators": [
+        "Hitoshi Iwaaki"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 10,
+      "serialization": {
+        "display": "1989–1994",
+        "start_year": 1989,
+        "end_year": 1994,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 149,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "horror",
+        "sci-fi",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-ping-pong-club",
+      "title": "The Ping Pong Club",
+      "media_type": "manga",
+      "creators": [
+        "Minoru Furuya"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 13,
+      "serialization": {
+        "display": "1993–1996",
+        "start_year": 1993,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 150,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "gag",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "saiyuki",
+      "title": "Saiyuki",
+      "media_type": "manga",
+      "creators": [
+        "Kazuya Minekura"
+      ],
+      "publishers": [
+        "Square Enix",
+        "Ichijinsha"
+      ],
+      "demographics": [
+        "Shōnen",
+        "Shōjo",
+        "Josei"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "1997–present",
+        "start_year": 1997,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 151,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "fantasy",
+        "adventure",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tasogare-ry-seigun",
+      "title": "Tasogare Ryūseigun",
+      "media_type": "manga",
+      "creators": [
+        "Kenshi Hirokane"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 79,
+      "serialization": {
+        "display": "1995–present",
+        "start_year": 1995,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 152,
+        "approx_sales_millions": 25.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ahiru-no-sora",
+      "title": "Ahiru no Sora",
+      "media_type": "manga",
+      "creators": [
+        "Takeshi Hinata"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 51,
+      "serialization": {
+        "display": "2004–2019 (on hiatus)",
+        "start_year": 2004,
+        "end_year": 2019,
+        "publication_status": "hiatus"
+      },
+      "popularity": {
+        "sales_rank": 153,
+        "approx_sales_millions": 24.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "basketball",
+        "school",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "gantz",
+      "title": "Gantz",
+      "media_type": "manga",
+      "creators": [
+        "Hiroya Oku"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 37,
+      "serialization": {
+        "display": "2000–2013",
+        "start_year": 2000,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 154,
+        "approx_sales_millions": 24.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "sci-fi",
+        "horror"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kaguya-sama-love-is-war",
+      "title": "Kaguya-sama: Love Is War",
+      "media_type": "manga",
+      "creators": [
+        "Aka Akasaka"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "2015–2022",
+        "start_year": 2015,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 155,
+        "approx_sales_millions": 24.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "zatch-bell",
+      "title": "Zatch Bell!",
+      "media_type": "manga",
+      "creators": [
+        "Makoto Raiku"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 33,
+      "serialization": {
+        "display": "2001–2007",
+        "start_year": 2001,
+        "end_year": 2007,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 156,
+        "approx_sales_millions": 23.8,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "action",
+        "fantasy",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "rave-master",
+      "title": "Rave Master",
+      "media_type": "manga",
+      "creators": [
+        "Hiro Mashima"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 35,
+      "serialization": {
+        "display": "1999–2005",
+        "start_year": 1999,
+        "end_year": 2005,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 157,
+        "approx_sales_millions": 23.5,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "adventure",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "giant-killing",
+      "title": "Giant Killing",
+      "media_type": "manga",
+      "creators": [
+        "Masaya Tsunamoto",
+        "Tsujitomo"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 70,
+      "serialization": {
+        "display": "2007–present",
+        "start_year": 2007,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 158,
+        "approx_sales_millions": 23.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "soccer",
+        "workplace"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "himitsu-series",
+      "title": "Himitsu Series",
+      "media_type": "manga",
+      "creators": [
+        "Yasuko Uchiyama",
+        "Tokuo Yokota",
+        "Terumi Fujiki",
+        "Yoshitari Iizuka"
+      ],
+      "publishers": [
+        "Gakken"
+      ],
+      "demographics": [
+        "Children"
+      ],
+      "volumes": 116,
+      "serialization": {
+        "display": "1972–2014",
+        "start_year": 1972,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 159,
+        "approx_sales_millions": 23.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "educational",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-rose-of-versailles",
+      "title": "The Rose of Versailles",
+      "media_type": "manga",
+      "creators": [
+        "Riyoko Ikeda"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 10,
+      "serialization": {
+        "display": "1972–1973",
+        "start_year": 1972,
+        "end_year": 1973,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 160,
+        "approx_sales_millions": 23.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "romance",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "ushijima-the-loan-shark",
+      "title": "Ushijima the Loan Shark",
+      "media_type": "manga",
+      "creators": [
+        "Shohei Manabe"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 46,
+      "serialization": {
+        "display": "2004–2019",
+        "start_year": 2004,
+        "end_year": 2019,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 161,
+        "approx_sales_millions": 23.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "psychological",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "abu-san",
+      "title": "Abu-san",
+      "media_type": "manga",
+      "creators": [
+        "Shinji Mizushima"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 107,
+      "serialization": {
+        "display": "1973–2014",
+        "start_year": 1973,
+        "end_year": 2014,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 162,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "cardcaptor-sakura",
+      "title": "Cardcaptor Sakura",
+      "media_type": "manga",
+      "creators": [
+        "Clamp"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "1996–2023",
+        "start_year": 1996,
+        "end_year": 2023,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 163,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "magical-girl",
+        "fantasy",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "don-t-call-it-mystery",
+      "title": "Don't Call It Mystery",
+      "media_type": "manga",
+      "creators": [
+        "Yumi Tamura"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Josei"
+      ],
+      "volumes": 16,
+      "serialization": {
+        "display": "2016–present",
+        "start_year": 2016,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 164,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "mystery"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hayate-the-combat-butler",
+      "title": "Hayate the Combat Butler",
+      "media_type": "manga",
+      "creators": [
+        "Kenjiro Hata"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 52,
+      "serialization": {
+        "display": "2004–2017",
+        "start_year": 2004,
+        "end_year": 2017,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 165,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "hoshin-engi",
+      "title": "Hoshin Engi",
+      "media_type": "manga",
+      "creators": [
+        "Ryu Fujisaki"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "1996–2000",
+        "start_year": 1996,
+        "end_year": 2000,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 166,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "action",
+        "mythology",
+        "historical"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "made-in-abyss",
+      "title": "Made in Abyss",
+      "media_type": "manga",
+      "creators": [
+        "Akihito Tsukushi"
+      ],
+      "publishers": [
+        "Takeshobo"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 14,
+      "serialization": {
+        "display": "2012–present",
+        "start_year": 2012,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 167,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "adventure",
+        "dark-fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "swan",
+      "title": "Swan",
+      "media_type": "manga",
+      "creators": [
+        "Kyoko Ariyoshi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 21,
+      "serialization": {
+        "display": "1976–1981",
+        "start_year": 1976,
+        "end_year": 1981,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 168,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "drama",
+        "performing-arts"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "terra-formars",
+      "title": "Terra Formars",
+      "media_type": "manga",
+      "creators": [
+        "Yū Sasuga",
+        "Kenichi Tachibana"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 23,
+      "serialization": {
+        "display": "2011–present",
+        "start_year": 2011,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 169,
+        "approx_sales_millions": 22.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sci-fi",
+        "action",
+        "horror"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "d-butsu-no-oisha-san",
+      "title": "Dōbutsu no Oisha-san",
+      "media_type": "manga",
+      "creators": [
+        "Noriko Sasaki"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 12,
+      "serialization": {
+        "display": "1987–1993",
+        "start_year": 1987,
+        "end_year": 1993,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 170,
+        "approx_sales_millions": 21.6,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "medical"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "osu-karate-club",
+      "title": "Osu! Karate Club",
+      "media_type": "manga",
+      "creators": [
+        "Koji Takahashi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 43,
+      "serialization": {
+        "display": "1985–1996",
+        "start_year": 1985,
+        "end_year": 1996,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 171,
+        "approx_sales_millions": 21.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "martial-arts",
+        "delinquent",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "rookies",
+      "title": "Rookies",
+      "media_type": "manga",
+      "creators": [
+        "Masanori Morita"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 24,
+      "serialization": {
+        "display": "1998–2003",
+        "start_year": 1998,
+        "end_year": 2003,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 172,
+        "approx_sales_millions": 21.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "sports",
+        "baseball",
+        "delinquent",
+        "school",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tsubasa-reservoir-chronicle",
+      "title": "Tsubasa: Reservoir Chronicle",
+      "media_type": "manga",
+      "creators": [
+        "Clamp"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "2003–2009",
+        "start_year": 2003,
+        "end_year": 2009,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 173,
+        "approx_sales_millions": 21.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "adventure",
+        "romance"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dragon-quest-the-mark-of-erdick",
+      "title": "Dragon Quest: The Mark of Erdick",
+      "media_type": "manga",
+      "creators": [
+        "Chiaki Kawamata",
+        "Junji Koyanagi",
+        "Kamui Fujiwara"
+      ],
+      "publishers": [
+        "Enix"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 21,
+      "serialization": {
+        "display": "1991–1997",
+        "start_year": 1991,
+        "end_year": 1997,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 174,
+        "approx_sales_millions": 20.9,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "soul-eater",
+      "title": "Soul Eater",
+      "media_type": "manga",
+      "creators": [
+        "Atsushi Ohkubo"
+      ],
+      "publishers": [
+        "Square Enix"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 25,
+      "serialization": {
+        "display": "2004–2013",
+        "start_year": 2004,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 175,
+        "approx_sales_millions": 20.4,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sh-nen-sh-jo-nippon-no-rekishi",
+      "title": "Shōnen Shōjo Nippon no Rekishi",
+      "media_type": "manga",
+      "creators": [
+        "Kōta Kodama",
+        "Arakawa Shoji"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Children"
+      ],
+      "volumes": 24,
+      "serialization": {
+        "display": "1981–2018",
+        "start_year": 1981,
+        "end_year": 2018,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 176,
+        "approx_sales_millions": 20.2,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "educational",
+        "historical",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "750-rider",
+      "title": "750 Rider",
+      "media_type": "manga",
+      "creators": [
+        "Isami Ishii"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 50,
+      "serialization": {
+        "display": "1975–1985",
+        "start_year": 1975,
+        "end_year": 1985,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 177,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "buddha",
+      "title": "Buddha",
+      "media_type": "manga",
+      "creators": [
+        "Osamu Tezuka"
+      ],
+      "publishers": [
+        "Ushio Shuppan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 14,
+      "serialization": {
+        "display": "1972–1983",
+        "start_year": 1972,
+        "end_year": 1983,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 178,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "drama"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "cat-s-eye",
+      "title": "Cat's Eye",
+      "media_type": "manga",
+      "creators": [
+        "Tsukasa Hojo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1981–1985",
+        "start_year": 1981,
+        "end_year": 1985,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 179,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "crime",
+        "romance",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "cuffs-kizu-darake-no-chizu",
+      "title": "Cuffs – Kizu Darake no Chizu",
+      "media_type": "manga",
+      "creators": [
+        "Jin Tojo"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 32,
+      "serialization": {
+        "display": "1997–2005",
+        "start_year": 1997,
+        "end_year": 2005,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 180,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "delinquent",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "dr-stone",
+      "title": "Dr. Stone",
+      "media_type": "manga",
+      "creators": [
+        "Riichiro Inagaki",
+        "Boichi"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 27,
+      "serialization": {
+        "display": "2017–2022",
+        "start_year": 2017,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 181,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "sci-fi",
+        "adventure",
+        "post-apocalyptic"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "fire-force",
+      "title": "Fire Force",
+      "media_type": "manga",
+      "creators": [
+        "Atsushi Ohkubo"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "2015–2022",
+        "start_year": 2015,
+        "end_year": 2022,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 182,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "supernatural",
+        "sci-fi"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "food-wars-shokugeki-no-soma",
+      "title": "Food Wars!: Shokugeki no Soma",
+      "media_type": "manga",
+      "creators": [
+        "Yūto Tsukuda",
+        "Shun Saeki"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 36,
+      "serialization": {
+        "display": "2012–2019",
+        "start_year": 2012,
+        "end_year": 2019,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 183,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "cooking",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "haruhi-suzumiya",
+      "title": "Haruhi Suzumiya",
+      "media_type": "manga",
+      "creators": [
+        "Makoto Mizuno",
+        "Gaku Tsugano",
+        "Puyo",
+        "Eretto"
+      ],
+      "publishers": [
+        "Kadokawa Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 20,
+      "serialization": {
+        "display": "2005–2013",
+        "start_year": 2005,
+        "end_year": 2013,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 184,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "sci-fi",
+        "school",
+        "supernatural"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "keiji",
+      "title": "Keiji",
+      "media_type": "manga",
+      "creators": [
+        "Keiichiro Ryu",
+        "Tetsuo Hara"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1990–1993",
+        "start_year": 1990,
+        "end_year": 1993,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 185,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "action",
+        "samurai"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "kimagure-orange-road",
+      "title": "Kimagure Orange Road",
+      "media_type": "manga",
+      "creators": [
+        "Izumi Matsumoto"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1984–1987",
+        "start_year": 1984,
+        "end_year": 1987,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 186,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "supernatural",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "love-hina",
+      "title": "Love Hina",
+      "media_type": "manga",
+      "creators": [
+        "Ken Akamatsu"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 14,
+      "serialization": {
+        "display": "1998–2001",
+        "start_year": 1998,
+        "end_year": 2001,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 187,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "master-keaton",
+      "title": "Master Keaton",
+      "media_type": "manga",
+      "creators": [
+        "Naoki Urasawa",
+        "Hokusei Katsushika",
+        "Takashi Nagasaki"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1988–1994",
+        "start_year": 1988,
+        "end_year": 1994,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 188,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mystery",
+        "adventure"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "mazinger-z",
+      "title": "Mazinger Z",
+      "media_type": "manga",
+      "creators": [
+        "Go Nagai"
+      ],
+      "publishers": [
+        "Shueisha",
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 5,
+      "serialization": {
+        "display": "1972–1974",
+        "start_year": 1972,
+        "end_year": 1974,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 189,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "mecha",
+        "sci-fi",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "monster",
+      "title": "Monster",
+      "media_type": "manga",
+      "creators": [
+        "Naoki Urasawa"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 18,
+      "serialization": {
+        "display": "1994–2001",
+        "start_year": 1994,
+        "end_year": 2001,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 190,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "thriller",
+        "mystery",
+        "psychological",
+        "crime"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "negima-magister-negi-magi",
+      "title": "Negima! Magister Negi Magi",
+      "media_type": "manga",
+      "creators": [
+        "Ken Akamatsu"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 38,
+      "serialization": {
+        "display": "2003–2012",
+        "start_year": 2003,
+        "end_year": 2012,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 191,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "fantasy",
+        "magic",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "peacock-king",
+      "title": "Peacock King",
+      "media_type": "manga",
+      "creators": [
+        "Makoto Ogino"
+      ],
+      "publishers": [
+        "Shueisha",
+        "Shogakukan",
+        "Leed"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 45,
+      "serialization": {
+        "display": "1985–2019",
+        "start_year": 1985,
+        "end_year": 2019,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 192,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "supernatural",
+        "horror",
+        "action"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "the-quintessential-quintuplets",
+      "title": "The Quintessential Quintuplets",
+      "media_type": "manga",
+      "creators": [
+        "Negi Haruba"
+      ],
+      "publishers": [
+        "Kodansha"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 14,
+      "serialization": {
+        "display": "2017–2020",
+        "start_year": 2017,
+        "end_year": 2020,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 193,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "record-of-ragnarok",
+      "title": "Record of Ragnarok",
+      "media_type": "manga",
+      "creators": [
+        "Shinya Umemura",
+        "Takumi Fukui",
+        "Azychika"
+      ],
+      "publishers": [
+        "Coamix"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "2017–present",
+        "start_year": 2017,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 194,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "mythology"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "red-river",
+      "title": "Red River",
+      "media_type": "manga",
+      "creators": [
+        "Chie Shinohara"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 28,
+      "serialization": {
+        "display": "1995–2002",
+        "start_year": 1995,
+        "end_year": 2002,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 195,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "historical",
+        "romance",
+        "isekai",
+        "fantasy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sh-nen-ashibe",
+      "title": "Shōnen Ashibe",
+      "media_type": "manga",
+      "creators": [
+        "Hiromi Morishita"
+      ],
+      "publishers": [
+        "Shueisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 8,
+      "serialization": {
+        "display": "1988–1994",
+        "start_year": 1988,
+        "end_year": 1994,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 196,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": false,
+        "includes_digital": false
+      },
+      "genres": [
+        "comedy",
+        "slice-of-life",
+        "kids"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "sukeban-deka",
+      "title": "Sukeban Deka",
+      "media_type": "manga",
+      "creators": [
+        "Shinji Wada"
+      ],
+      "publishers": [
+        "Hakusensha"
+      ],
+      "demographics": [
+        "Shōjo"
+      ],
+      "volumes": 22,
+      "serialization": {
+        "display": "1976–1982",
+        "start_year": 1976,
+        "end_year": 1982,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 197,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "action",
+        "crime",
+        "school"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "tokyo-daigaku-monogatari",
+      "title": "Tokyo Daigaku Monogatari",
+      "media_type": "manga",
+      "creators": [
+        "Tatsuya Egawa"
+      ],
+      "publishers": [
+        "Shogakukan"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 34,
+      "serialization": {
+        "display": "1992–2001",
+        "start_year": 1992,
+        "end_year": 2001,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 198,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "romance",
+        "comedy"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "weed",
+      "title": "Weed",
+      "media_type": "manga",
+      "creators": [
+        "Yoshihiro Takahashi"
+      ],
+      "publishers": [
+        "Nihon Bungeisha"
+      ],
+      "demographics": [
+        "Seinen"
+      ],
+      "volumes": 60,
+      "serialization": {
+        "display": "1999–2009",
+        "start_year": 1999,
+        "end_year": 2009,
+        "publication_status": "completed"
+      },
+      "popularity": {
+        "sales_rank": 199,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": false
+      },
+      "genres": [
+        "adventure",
+        "action",
+        "animals"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    },
+    {
+      "id": "welcome-to-demon-school-iruma-kun",
+      "title": "Welcome to Demon School! Iruma-kun",
+      "media_type": "manga",
+      "creators": [
+        "Osamu Nishi"
+      ],
+      "publishers": [
+        "Akita Shoten"
+      ],
+      "demographics": [
+        "Shōnen"
+      ],
+      "volumes": 49,
+      "serialization": {
+        "display": "2017–present",
+        "start_year": 2017,
+        "end_year": null,
+        "publication_status": "ongoing"
+      },
+      "popularity": {
+        "sales_rank": 200,
+        "approx_sales_millions": 20.0,
+        "figure_is_circulation": true,
+        "includes_digital": true
+      },
+      "genres": [
+        "comedy",
+        "fantasy",
+        "school",
+        "demons"
+      ],
+      "related": [],
+      "user": {
+        "status": null,
+        "rating": null,
+        "progress": null,
+        "started": null,
+        "finished": null,
+        "favorite": false,
+        "notes": ""
+      }
+    }
+  ]
+}
