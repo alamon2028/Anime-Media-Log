@@ -4,33 +4,40 @@ A static anime & manga log for GitHub Pages — plain HTML, CSS and JavaScript, 
 
 - `index.html` – page markup
 - `styles.css` – styles (light and dark themes)
-- `app.js` – loads `data.json` and renders stats, filters and entry cards
-- `data.json` – your log (currently **sample data**; replace it with your own)
+- `app.js` – loads `data.json`, renders the catalog, filters and the log editor
+- `data.json` – the catalog plus your personal log fields
+
+## Using the log
+
+Every title has a **Log** button. Set a status, rating (1–10), progress, start/finish dates, notes,
+or star it as a favorite. Edits are saved in your browser (`localStorage`) right away.
+
+GitHub Pages can't write to the repository, so to publish your log:
+
+1. Click **Export JSON** to download an updated `data.json` with your edits merged in.
+2. Replace `data.json` in the repository with it and commit.
+
+**Discard local edits** clears anything saved in the browser that hasn't been exported yet.
+
+Filters (log status, media type, demographic, genre, publication status, sort, search) are kept in the
+URL, so a filtered view can be bookmarked or shared.
 
 ## Data format
 
-`data.json` can be a bare array of entries, or an object with an `entries` array
-(or separate `anime` and `manga` arrays). Each entry:
+`data.json` (`schema_version: 1`) has `sources`, `enums` and an `items` array. Each item:
 
-```json
-{
-  "title": "Frieren: Beyond Journey's End",
-  "type": "anime",              // "anime" or "manga"
-  "status": "completed",        // watching | reading | completed | on-hold | planned | dropped
-  "score": 10,                  // optional, any numeric scale
-  "progress": 28,               // episodes/chapters done
-  "total": 28,                  // total episodes/chapters (null if unknown/ongoing)
-  "unit": "episodes",           // optional, e.g. "volumes"
-  "year": 2023,
-  "genres": ["Fantasy", "Drama"],
-  "started": "2024-01-05",
-  "finished": "2024-03-22",
-  "notes": "Optional notes",
-  "url": "https://…"            // optional link
-}
-```
+| Field | Meaning |
+| --- | --- |
+| `id`, `title` | Unique slug and display title |
+| `media_type` | One of `enums.media_type`: `manga`, `anime_series`, `anime_film`, `light_novel`, `video_game` |
+| `creators`, `publishers`, `demographics`, `genres` | String arrays |
+| `volumes` | Total collected volumes (used as the progress total for manga and light novels) |
+| `serialization` | `display`, `start_year`, `end_year`, `publication_status` (`ongoing`, `completed`, `hiatus`) |
+| `popularity` | `sales_rank`, `approx_sales_millions`, `figure_is_circulation`, `includes_digital` |
+| `related` | Related item ids |
+| `user` | Your log: `status` (one of `enums["user.status"]` or `null`), `rating`, `progress`, `started`, `finished` (`YYYY-MM-DD`), `favorite`, `notes` |
 
-Common alternative names (`name`, `rating`, `episodes`, `chapters`, `genre`, etc.) are also recognised.
+For `anime_series` items, an optional `episodes` field is used as the progress total.
 
 ## Run locally
 
@@ -44,4 +51,4 @@ Then open http://localhost:8000.
 
 ## Publish
 
-In the repository's **Settings → Pages**, set the source to deploy from the branch and `/ (root)` folder.
+In the repository's **Settings → Pages**, set the source to deploy from a branch, choose the branch and the `/ (root)` folder.
