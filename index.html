@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anime &amp; Manga Log</title>
+  <meta name="description" content="A personal log of anime watched and manga read.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Anime &amp; Manga Log</h1>
+      <p class="tagline">Everything watched, read, and still waiting on the list.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="stats" id="stats" aria-label="Summary"></section>
+
+    <section class="controls" aria-label="Filters">
+      <div class="seg" role="group" aria-label="Media type" id="type-filter">
+        <button type="button" data-type="all" aria-pressed="true">All</button>
+        <button type="button" data-type="anime" aria-pressed="false">Anime</button>
+        <button type="button" data-type="manga" aria-pressed="false">Manga</button>
+      </div>
+      <label class="field grow">
+        <span class="sr-only">Search</span>
+        <input type="search" id="search" placeholder="Search titles, genres, notes…" autocomplete="off">
+      </label>
+      <label class="field">
+        <span class="sr-only">Status</span>
+        <select id="status-filter"><option value="all">All statuses</option></select>
+      </label>
+      <label class="field">
+        <span class="sr-only">Genre</span>
+        <select id="genre-filter"><option value="all">All genres</option></select>
+      </label>
+      <label class="field">
+        <span class="sr-only">Sort</span>
+        <select id="sort">
+          <option value="recent">Recently active</option>
+          <option value="score">Highest score</option>
+          <option value="title">Title A–Z</option>
+          <option value="year">Release year</option>
+          <option value="progress">Progress</option>
+        </select>
+      </label>
+    </section>
+
+    <p class="result-count" id="result-count" aria-live="polite"></p>
+    <section class="grid" id="grid" aria-label="Entries"></section>
+    <p class="message" id="message" hidden></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Data from <a href="data.json">data.json</a>.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
