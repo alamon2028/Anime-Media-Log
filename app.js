@@ -2,354 +2,463 @@
   "use strict";
 
   var DATA_URL = "data.json";
+  var STORAGE_KEY = "anime-media-log:user-edits:v1";
 
-  var STATUS_ORDER = ["watching", "reading", "completed", "on-hold", "planned", "dropped"];
-  var STATUS_LABELS = {
-    watching: "Watching",
-    reading: "Reading",
-    completed: "Completed",
-    "on-hold": "On hold",
-    planned: "Planned",
-    dropped: "Dropped"
+  var DEFAULT_STATUSES = ["planned", "in_progress", "completed", "on_hold", "dropped"];
+  var STATUS_ORDER = ["in_progress", "planned", "on_hold", "completed", "dropped"];
+  var TYPE_LABELS = {
+    manga: "Manga",
+    anime_series: "Anime series",
+    anime_film: "Anime film",
+    light_novel: "Light novel",
+    video_game: "Video game"
   };
+  var PUB_LABELS = { ongoing: "Ongoing", completed: "Completed", hiatus: "On hiatus", cancelled: "Cancelled" };
+  var EMPTY_USER = { status: null, rating: null, progress: null, started: null, finished: null, favorite: false, notes: "" };
 
-  var state = { entries: [], type: "all", status: "all", genre: "all", query: "", sort: "recent" };
+  var doc = null;          // the parsed data.json
+  var items = [];          // doc.items
+  var edits = loadEdits(); // { [id]: user } overrides saved in this browser
+  var editingId = null;
 
+  var DEFAULT_STATE = { q: "", status: "all", type: "all", demo: "all", genre: "all", pub: "all", sort: "rank" };
+  var state = Object.assign({}, DEFAULT_STATE);
+
+  var $ = function (id) { return document.getElementById(id); };
   var el = {
-    stats: document.getElementById("stats"),
-    grid: document.getElementById("grid"),
-    message: document.getElementById("message"),
-    count: document.getElementById("result-count"),
-    search: document.getElementById("search"),
-    status: document.getElementById("status-filter"),
-    genre: document.getElementById("genre-filter"),
-    sort: document.getElementById("sort"),
-    typeButtons: document.querySelectorAll("#type-filter button")
+    tagline: $("tagline"), stats: $("stats"), grid: $("grid"), count: $("result-count"), message: $("message"),
+    search: $("search"), status: $("f-status"), type: $("f-type"), demo: $("f-demo"), genre: $("f-genre"),
+    pub: $("f-pub"), sort: $("sort"), clear: $("clear-btn"), exportBtn: $("export-btn"), resetBtn: $("reset-btn"),
+    sources: $("sources"), dialog: $("editor"), form: $("editor-form")
   };
 
-  // ---------- Data normalisation ----------
-  // Accepts a bare array, or an object holding the list under a common key,
-  // or separate "anime" / "manga" arrays.
-  function extractList(data) {
-    if (Array.isArray(data)) return data;
-    if (!data || typeof data !== "object") return [];
-    var keys = ["entries", "items", "media", "log", "list", "data"];
-    for (var i = 0; i < keys.length; i++) {
-      if (Array.isArray(data[keys[i]])) return data[keys[i]];
-    }
-    var out = [];
-    ["anime", "manga"].forEach(function (t) {
-      if (Array.isArray(data[t])) {
-        data[t].forEach(function (e) { out.push(Object.assign({ type: t }, e)); });
-      }
-    });
-    return out;
+  // ---------- Persistence ----------
+  function loadEdits() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function saveEdits() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(edits)); } catch (e) { /* storage unavailable */ }
+    el.resetBtn.hidden = Object.keys(edits).length === 0;
   }
 
-  function pick(obj, names) {
-    for (var i = 0; i < names.length; i++) {
-      var v = obj[names[i]];
-      if (v !== undefined && v !== null && v !== "") return v;
+  function userOf(item) {
+    return Object.assign({}, EMPTY_USER, item.user || {}, edits[item.id] || {});
+  }
+  function isLogged(u) {
+    return !!(u.status || u.rating != null || u.progress != null || u.favorite || u.notes || u.started || u.finished);
+  }
+  function setUser(item, u) {
+    var base = Object.assign({}, EMPTY_USER, item.user || {});
+    var same = Object.keys(EMPTY_USER).every(function (k) { return (base[k] ?? null) === (u[k] ?? null); });
+    if (same) delete edits[item.id]; else edits[item.id] = u;
+    saveEdits();
+  }
+
+  // ---------- Labels & formatting ----------
+  function typeLabel(t) { return TYPE_LABELS[t] || humanize(t); }
+  function humanize(s) {
+    s = String(s || "").replace(/[_-]+/g, " ");
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+  function statusLabel(s, type) {
+    if (s === "in_progress") {
+      if (/^anime/.test(type)) return "Watching";
+      if (type === "video_game") return "Playing";
+      if (type === "manga" || type === "light_novel") return "Reading";
+      return "In progress";
     }
+    return humanize(s);
+  }
+  function unitOf(item) {
+    if (item.media_type === "anime_series") return "episodes";
+    if (item.media_type === "manga" || item.media_type === "light_novel") return "volumes";
     return null;
   }
-
-  function toNumber(v) {
-    if (v === null || v === undefined || v === "") return null;
-    var n = Number(v);
-    return isFinite(n) ? n : null;
+  function totalOf(item) {
+    if (item.media_type === "anime_series") return item.episodes ?? null;
+    return item.volumes ?? null;
+  }
+  function fmtMillions(n) {
+    if (n == null) return null;
+    return (Number.isInteger(n) ? String(n) : String(+n.toFixed(2))) + "M";
+  }
+  function salesNote(p) {
+    var bits = [p.figure_is_circulation ? "in circulation" : "copies sold"];
+    if (p.includes_digital) bits.push("incl. digital");
+    return bits.join(", ");
   }
 
-  function normaliseType(raw) {
-    var t = String(raw || "").toLowerCase();
-    if (/manga|manhwa|manhua|light novel|novel|book|comic|read/.test(t)) return "manga";
-    return "anime";
-  }
-
-  function normaliseStatus(raw, type) {
-    var s = String(raw || "").toLowerCase().replace(/[_\s]+/g, "-");
-    if (/^(completed?|finished|done|watched|read)$/.test(s)) return "completed";
-    if (/^(watching|reading|in-progress|current(ly)?(-watching|-reading)?|ongoing)$/.test(s)) {
-      return type === "manga" ? "reading" : "watching";
-    }
-    if (/hold|paused/.test(s)) return "on-hold";
-    if (/drop/.test(s)) return "dropped";
-    if (/plan|want|backlog|ptw|ptr|to-(watch|read)|queue/.test(s)) return "planned";
-    return s || "planned";
-  }
-
-  function toList(v) {
-    if (Array.isArray(v)) return v.map(String).filter(Boolean);
-    if (typeof v === "string") return v.split(/[,;|]/).map(function (s) { return s.trim(); }).filter(Boolean);
-    return [];
-  }
-
-  function parseDate(v) {
-    if (!v) return null;
-    var d = new Date(v);
-    return isNaN(d.getTime()) ? null : d;
-  }
-
-  function normalise(raw, index) {
-    var type = normaliseType(pick(raw, ["type", "media", "mediaType", "media_type", "format", "kind"]));
-    var status = normaliseStatus(pick(raw, ["status", "state", "list", "watchStatus"]), type);
-    var score = toNumber(pick(raw, ["score", "rating", "myScore", "my_score", "stars"]));
-    var progress = toNumber(pick(raw, ["progress", "episodesWatched", "episodes_watched", "chaptersRead", "chapters_read", "watched", "read", "current"]));
-    var total = toNumber(pick(raw, ["total", "episodes", "chapters", "volumes", "totalEpisodes", "total_episodes", "totalChapters", "total_chapters", "length"]));
-    if (status === "completed" && progress === null && total !== null) progress = total;
-    var unit = pick(raw, ["unit"]) || (type === "manga" ? "chapters" : "episodes");
-
-    return {
-      id: index,
-      title: String(pick(raw, ["title", "name", "englishTitle", "title_english", "romaji"]) || "Untitled"),
-      altTitle: pick(raw, ["altTitle", "japaneseTitle", "title_japanese", "native"]),
-      type: type,
-      status: status,
-      score: score,
-      progress: progress,
-      total: total,
-      unit: String(unit),
-      year: toNumber(pick(raw, ["year", "releaseYear", "release_year", "aired", "published"])),
-      genres: toList(pick(raw, ["genres", "genre", "tags"])),
-      started: parseDate(pick(raw, ["started", "startDate", "start_date", "start", "dateStarted"])),
-      finished: parseDate(pick(raw, ["finished", "finishDate", "finish_date", "end", "completed", "dateFinished"])),
-      notes: pick(raw, ["notes", "note", "review", "comment", "comments"]),
-      url: pick(raw, ["url", "link", "mal", "anilist"])
-    };
-  }
-
-  // ---------- Rendering helpers ----------
   function h(tag, attrs, children) {
     var node = document.createElement(tag);
-    if (attrs) {
-      Object.keys(attrs).forEach(function (k) {
-        if (k === "text") node.textContent = attrs[k];
-        else if (k === "class") node.className = attrs[k];
-        else node.setAttribute(k, attrs[k]);
-      });
-    }
-    (children || []).forEach(function (c) { if (c) node.appendChild(c); });
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      var v = attrs[k];
+      if (v == null || v === false) return;
+      if (k === "text") node.textContent = v;
+      else if (k === "class") node.className = v;
+      else node.setAttribute(k, v === true ? "" : v);
+    });
+    (children || []).forEach(function (c) {
+      if (c == null || c === false) return;
+      node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    });
     return node;
   }
 
-  function fmtDate(d) {
-    return d ? d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "";
-  }
+  // ---------- Stats ----------
+  function renderStats() {
+    var users = items.map(userOf);
+    var logged = users.filter(isLogged).length;
+    var count = function (s) { return users.filter(function (u) { return u.status === s; }).length; };
+    var favs = users.filter(function (u) { return u.favorite; }).length;
+    var vols = items.reduce(function (sum, it, i) {
+      return sum + (unitOf(it) === "volumes" ? (users[i].progress || 0) : 0);
+    }, 0);
+    var rated = users.filter(function (u) { return u.rating != null; });
+    var mean = rated.length ? rated.reduce(function (s, u) { return s + Number(u.rating); }, 0) / rated.length : null;
 
-  function fmtScore(n) {
-    return Number.isInteger(n) ? String(n) : n.toFixed(1);
-  }
-
-  function statusLabel(s) {
-    return STATUS_LABELS[s] || s.replace(/-/g, " ").replace(/^\w/, function (c) { return c.toUpperCase(); });
-  }
-
-  function renderStats(entries) {
-    var anime = entries.filter(function (e) { return e.type === "anime"; });
-    var manga = entries.filter(function (e) { return e.type === "manga"; });
-    var completed = entries.filter(function (e) { return e.status === "completed"; }).length;
-    var episodes = anime.reduce(function (sum, e) { return sum + (e.progress || 0); }, 0);
-    var chapters = manga.reduce(function (sum, e) { return sum + (e.unit === "volumes" ? 0 : (e.progress || 0)); }, 0);
-    var scored = entries.filter(function (e) { return e.score !== null; });
-    var mean = scored.length ? scored.reduce(function (s, e) { return s + e.score; }, 0) / scored.length : null;
-
-    var items = [
-      [anime.length, "Anime"],
-      [manga.length, "Manga"],
-      [completed, "Completed"],
-      [episodes.toLocaleString(), "Episodes watched"],
-      [chapters.toLocaleString(), "Chapters read"],
-      [mean === null ? "–" : mean.toFixed(1), "Mean score"]
+    var tiles = [
+      [items.length, "Titles in catalog"],
+      [logged, "In my log"],
+      [count("in_progress"), "In progress"],
+      [count("completed"), "Completed"],
+      [vols.toLocaleString(), "Volumes read"],
+      [favs, "Favorites"],
+      [mean == null ? "–" : mean.toFixed(1), "Mean rating"]
     ];
-
-    el.stats.replaceChildren.apply(el.stats, items.map(function (it) {
-      return h("div", { class: "stat" }, [
-        h("div", { class: "value", text: String(it[0]) }),
-        h("div", { class: "label", text: it[1] })
-      ]);
+    el.stats.replaceChildren.apply(el.stats, tiles.map(function (t) {
+      return h("div", { class: "stat" }, [h("div", { class: "value", text: String(t[0]) }), h("div", { class: "label", text: t[1] })]);
     }));
   }
 
-  function renderCard(e) {
-    var titleNode = e.url
-      ? h("a", { href: e.url, target: "_blank", rel: "noopener", text: e.title })
-      : document.createTextNode(e.title);
-
-    var metaParts = [e.type === "anime" ? "Anime" : "Manga"];
-    if (e.year) metaParts.push(String(e.year));
-    if (e.total) metaParts.push(e.total + " " + e.unit);
+  // ---------- Cards ----------
+  function renderCard(item) {
+    var u = userOf(item);
+    var ser = item.serialization || {};
+    var pop = item.popularity || {};
+    var unit = unitOf(item);
+    var total = totalOf(item);
 
     var top = h("div", { class: "card-top" }, [
-      h("div", null, [
-        h("h2", null, [titleNode]),
-        e.altTitle ? h("div", { class: "meta", text: e.altTitle }) : null,
-        h("div", { class: "meta", text: metaParts.join(" · ") })
+      pop.sales_rank != null ? h("div", { class: "rank", title: "Sales rank" }, [h("small", { text: "rank" }), "#" + pop.sales_rank]) : null,
+      h("div", { class: "title-wrap" }, [
+        h("h2", { text: item.title }),
+        h("p", { class: "meta", text: (item.creators || []).join(", ") })
       ]),
-      e.score !== null
-        ? h("span", { class: "score", title: "Score", text: "★ " + fmtScore(e.score) })
-        : h("span", { class: "score none", text: "unscored" })
+      h("button", {
+        type: "button", class: "fav", "data-action": "fav", "aria-pressed": String(!!u.favorite),
+        "aria-label": (u.favorite ? "Remove " : "Add ") + item.title + (u.favorite ? " from" : " to") + " favorites",
+        text: "★"
+      })
     ]);
 
+    var facts = h("div", { class: "facts" }, [
+      h("span", null, [typeLabel(item.media_type)]),
+      ser.display ? h("span", null, [ser.display]) : null,
+      total != null && unit ? h("span", null, [h("b", { text: String(total) }), " " + unit]) : null,
+      pop.approx_sales_millions != null ? h("span", { title: salesNote(pop) }, [h("b", { text: "~" + fmtMillions(pop.approx_sales_millions) }), " " + salesNote(pop)]) : null
+    ]);
+
+    var sub = [].concat(item.publishers || [], item.demographics || []).join(" · ");
+
     var badges = h("div", { class: "badges" }, [
-      h("span", { class: "badge status", "data-status": e.status, text: statusLabel(e.status) })
-    ].concat(e.genres.map(function (g) { return h("span", { class: "badge", text: g }); })));
+      ser.publication_status && ser.publication_status !== "completed"
+        ? h("span", { class: "badge pub-" + ser.publication_status, text: PUB_LABELS[ser.publication_status] || humanize(ser.publication_status) })
+        : null
+    ].concat((item.genres || []).map(function (g) {
+      return h("button", { type: "button", class: "badge", "data-action": "genre", "data-genre": g, title: "Filter by " + humanize(g), text: humanize(g) });
+    })));
 
-    var progress = null;
-    if (e.progress !== null || (e.total && e.status !== "planned")) {
-      var done = e.progress || 0;
-      var pct = e.total ? Math.min(100, Math.round((done / e.total) * 100)) : null;
-      var bar = h("div", { class: "bar", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": String(e.total || done), "aria-valuenow": String(done), "aria-label": "Progress" }, [
-        h("span", { style: "width:" + (pct === null ? 100 : pct) + "%;" + (pct === null ? "opacity:.35" : "") })
-      ]);
-      progress = h("div", { class: "progress" }, [
-        bar,
-        h("span", { class: "count", text: done + " / " + (e.total || "?") + " " + e.unit })
-      ]);
+    var logBits = [];
+    logBits.push(u.status
+      ? h("span", { class: "pill", text: statusLabel(u.status, item.media_type) })
+      : h("span", { class: "pill none", text: "Not logged" }));
+    if (u.rating != null) logBits.push(h("span", { class: "score", title: "My rating", text: "★ " + u.rating }));
+    if (u.progress != null && unit) {
+      var pct = total ? Math.min(100, Math.round((u.progress / total) * 100)) : null;
+      if (pct != null) logBits.push(h("div", { class: "bar", role: "progressbar", "aria-label": "Progress", "aria-valuemin": "0", "aria-valuemax": String(total), "aria-valuenow": String(u.progress) }, [h("span", { style: "width:" + pct + "%" })]));
+      logBits.push(h("span", { class: "count", text: u.progress + " / " + (total ?? "?") + " " + unit.replace(/s$/, (total === 1 ? "" : "s")) }));
+    } else {
+      logBits.push(h("span", { class: "spacer" }));
     }
+    logBits.push(h("button", { type: "button", class: "btn ghost", "data-action": "edit", text: isLogged(u) ? "Edit" : "Log" }));
 
-    var dateText = [];
-    if (e.started) dateText.push("Started " + fmtDate(e.started));
-    if (e.finished) dateText.push("Finished " + fmtDate(e.finished));
-
-    return h("article", { class: "card", "data-type": e.type }, [
+    return h("article", { class: "card" + (u.status ? " status-" + u.status : ""), "data-id": item.id }, [
       top,
+      sub ? h("p", { class: "meta", text: sub }) : null,
+      facts,
       badges,
-      progress,
-      e.notes ? h("p", { class: "notes", text: e.notes }) : null,
-      dateText.length ? h("div", { class: "dates", text: dateText.join(" · ") }) : null
+      u.notes ? h("p", { class: "notes", text: u.notes }) : null,
+      h("div", { class: "log" }, logBits)
     ]);
   }
 
   // ---------- Filtering & sorting ----------
-  function activity(e) {
-    var d = e.finished || e.started;
-    return d ? d.getTime() : 0;
+  function haystack(item) {
+    return [item.title, (item.creators || []).join(" "), (item.publishers || []).join(" "),
+      (item.genres || []).join(" "), (item.demographics || []).join(" "), userOf(item).notes]
+      .join(" ").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
   }
+  function normQuery(q) { return q.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim(); }
 
-  var sorters = {
-    recent: function (a, b) {
-      var rank = function (e) { return e.status === "watching" || e.status === "reading" ? 0 : 1; };
-      return rank(a) - rank(b) || activity(b) - activity(a) || a.title.localeCompare(b.title);
-    },
-    score: function (a, b) { return (b.score ?? -1) - (a.score ?? -1) || a.title.localeCompare(b.title); },
-    title: function (a, b) { return a.title.localeCompare(b.title); },
-    year: function (a, b) { return (b.year || 0) - (a.year || 0) || a.title.localeCompare(b.title); },
-    progress: function (a, b) {
-      var p = function (e) { return e.total ? (e.progress || 0) / e.total : -1; };
-      return p(b) - p(a) || a.title.localeCompare(b.title);
-    }
-  };
-
-  function matches(e) {
-    if (state.type !== "all" && e.type !== state.type) return false;
-    if (state.status !== "all" && e.status !== state.status) return false;
-    if (state.genre !== "all" && e.genres.indexOf(state.genre) === -1) return false;
-    if (state.query) {
-      var hay = [e.title, e.altTitle, e.notes, e.genres.join(" ")].join(" ").toLowerCase();
-      if (hay.indexOf(state.query) === -1) return false;
+  function matches(item) {
+    var u = userOf(item);
+    if (state.status === "logged" && !isLogged(u)) return false;
+    if (state.status === "unlogged" && isLogged(u)) return false;
+    if (state.status === "favorite" && !u.favorite) return false;
+    if (!/^(all|logged|unlogged|favorite)$/.test(state.status) && u.status !== state.status) return false;
+    if (state.type !== "all" && item.media_type !== state.type) return false;
+    if (state.demo !== "all" && (item.demographics || []).indexOf(state.demo) === -1) return false;
+    if (state.genre !== "all" && (item.genres || []).indexOf(state.genre) === -1) return false;
+    if (state.pub !== "all" && (item.serialization || {}).publication_status !== state.pub) return false;
+    if (state.q) {
+      var words = normQuery(state.q).split(/\s+/);
+      var hay = haystack(item);
+      if (!words.every(function (w) { return hay.indexOf(w) !== -1; })) return false;
     }
     return true;
   }
 
+  var rankOf = function (it) { var r = (it.popularity || {}).sales_rank; return r == null ? Infinity : r; };
+  var byRank = function (a, b) { return rankOf(a) - rankOf(b); };
+  var startOf = function (it) { return (it.serialization || {}).start_year || 0; };
+  var sorters = {
+    rank: byRank,
+    title: function (a, b) { return a.title.localeCompare(b.title); },
+    newest: function (a, b) { return startOf(b) - startOf(a) || byRank(a, b); },
+    oldest: function (a, b) { return (startOf(a) || 9999) - (startOf(b) || 9999) || byRank(a, b); },
+    volumes: function (a, b) { return (totalOf(b) || 0) - (totalOf(a) || 0) || byRank(a, b); },
+    rating: function (a, b) {
+      var ra = userOf(a).rating, rb = userOf(b).rating;
+      return (rb ?? -1) - (ra ?? -1) || byRank(a, b);
+    }
+  };
+
   function render() {
-    var list = state.entries.filter(matches).sort(sorters[state.sort] || sorters.recent);
+    var list = items.filter(matches).sort(sorters[state.sort] || byRank);
     el.grid.replaceChildren.apply(el.grid, list.map(renderCard));
-    el.count.textContent = list.length + " of " + state.entries.length + " entries";
-    if (!list.length) showMessage("Nothing matches these filters.");
-    else el.message.hidden = true;
+    el.count.textContent = list.length === items.length
+      ? items.length + " titles"
+      : list.length + " of " + items.length + " titles";
+    el.message.hidden = list.length > 0;
+    if (!list.length) el.message.textContent = "Nothing matches these filters.";
+    renderStats();
   }
 
-  function showMessage(text, html) {
-    el.message.hidden = false;
-    if (html) el.message.innerHTML = html;
-    else el.message.textContent = text;
+  // ---------- Controls ----------
+  function fill(select, values, label) {
+    values.forEach(function (v) { select.appendChild(h("option", { value: v, text: label ? label(v) : v })); });
   }
+  function uniq(arr) { return Array.from(new Set(arr)).filter(function (v) { return v != null && v !== ""; }); }
 
-  function fillSelect(select, values, labeler) {
-    values.forEach(function (v) {
-      select.appendChild(h("option", { value: v, text: labeler ? labeler(v) : v }));
+  function buildFilters() {
+    var enumStatuses = (doc.enums && doc.enums["user.status"]) || DEFAULT_STATUSES;
+    var statuses = STATUS_ORDER.filter(function (s) { return enumStatuses.indexOf(s) !== -1; })
+      .concat(enumStatuses.filter(function (s) { return STATUS_ORDER.indexOf(s) === -1; }));
+    fill(el.status, ["logged", "unlogged", "favorite"], function (v) {
+      return { logged: "In my log", unlogged: "Not logged", favorite: "Favorites" }[v];
     });
+    fill(el.status, statuses, function (s) { return statusLabel(s); });
+
+    var types = uniq(items.map(function (i) { return i.media_type; }));
+    fill(el.type, types, typeLabel);
+    el.type.parentNode.hidden = types.length < 2;
+
+    fill(el.demo, uniq([].concat.apply([], items.map(function (i) { return i.demographics || []; }))).sort());
+    fill(el.genre, uniq([].concat.apply([], items.map(function (i) { return i.genres || []; }))).sort(), humanize);
+    fill(el.pub, uniq(items.map(function (i) { return (i.serialization || {}).publication_status; })), function (p) { return PUB_LABELS[p] || humanize(p); });
+
+    // Rating and status options in the editor.
+    var rating = el.form.elements.rating;
+    for (var r = 10; r >= 1; r--) rating.appendChild(h("option", { value: String(r), text: String(r) }));
+    fill(el.form.elements.status, enumStatuses, function (s) { return statusLabel(s); });
   }
 
-  // ---------- URL state (shareable filters) ----------
-  function readHash() {
-    var params = new URLSearchParams(location.hash.slice(1));
-    ["type", "status", "genre", "sort"].forEach(function (k) { if (params.get(k)) state[k] = params.get(k); });
-    if (params.get("q")) state.query = params.get("q").toLowerCase();
-  }
-
-  function writeHash() {
-    var params = new URLSearchParams();
-    if (state.type !== "all") params.set("type", state.type);
-    if (state.status !== "all") params.set("status", state.status);
-    if (state.genre !== "all") params.set("genre", state.genre);
-    if (state.sort !== "recent") params.set("sort", state.sort);
-    if (state.query) params.set("q", state.query);
-    var str = params.toString();
-    history.replaceState(null, "", str ? "#" + str : location.pathname + location.search);
-  }
+  var controlMap = { q: "search", status: "status", type: "type", demo: "demo", genre: "genre", pub: "pub", sort: "sort" };
 
   function syncControls() {
-    el.typeButtons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.type === state.type)); });
-    el.status.value = state.status;
-    el.genre.value = state.genre;
-    el.sort.value = state.sort;
-    el.search.value = state.query;
-    // Fall back if the hash referenced a value that doesn't exist.
-    if (el.status.value !== state.status) state.status = el.status.value = "all";
-    if (el.genre.value !== state.genre) state.genre = el.genre.value = "all";
-    if (el.sort.value !== state.sort) state.sort = el.sort.value = "recent";
+    Object.keys(controlMap).forEach(function (k) {
+      var c = el[controlMap[k]];
+      c.value = state[k];
+      if (c.tagName === "SELECT" && c.value !== state[k]) state[k] = c.value = DEFAULT_STATE[k];
+    });
   }
 
+  function readHash() {
+    var p = new URLSearchParams(location.hash.slice(1));
+    Object.keys(DEFAULT_STATE).forEach(function (k) { if (p.has(k)) state[k] = p.get(k); });
+  }
+  function writeHash() {
+    var p = new URLSearchParams();
+    Object.keys(DEFAULT_STATE).forEach(function (k) { if (state[k] !== DEFAULT_STATE[k]) p.set(k, state[k]); });
+    var s = p.toString();
+    history.replaceState(null, "", s ? "#" + s : location.pathname + location.search);
+  }
   function update() { writeHash(); render(); }
 
-  function bind() {
-    el.typeButtons.forEach(function (b) {
-      b.addEventListener("click", function () {
-        state.type = b.dataset.type;
-        syncControls();
-        update();
-      });
+  function bindControls() {
+    el.search.addEventListener("input", function () { state.q = el.search.value; update(); });
+    ["status", "type", "demo", "genre", "pub", "sort"].forEach(function (k) {
+      el[k].addEventListener("change", function () { state[k] = el[k].value; update(); });
     });
-    el.search.addEventListener("input", function () { state.query = el.search.value.trim().toLowerCase(); update(); });
-    el.status.addEventListener("change", function () { state.status = el.status.value; update(); });
-    el.genre.addEventListener("change", function () { state.genre = el.genre.value; update(); });
-    el.sort.addEventListener("change", function () { state.sort = el.sort.value; update(); });
+    el.clear.addEventListener("click", function () {
+      state = Object.assign({}, DEFAULT_STATE, { sort: state.sort });
+      syncControls(); update();
+    });
+
+    el.grid.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-action]");
+      if (!btn) return;
+      var card = btn.closest(".card");
+      var item = card && findItem(card.dataset.id);
+      if (btn.dataset.action === "genre") {
+        state.genre = btn.dataset.genre; syncControls(); update();
+        el.genre.scrollIntoView({ block: "nearest" });
+      } else if (btn.dataset.action === "fav" && item) {
+        var u = userOf(item); u.favorite = !u.favorite; setUser(item, u); rerenderCard(item);
+      } else if (btn.dataset.action === "edit" && item) {
+        openEditor(item);
+      }
+    });
+
+    el.exportBtn.addEventListener("click", exportJson);
+    el.resetBtn.addEventListener("click", function () {
+      var n = Object.keys(edits).length;
+      if (!confirm("Discard " + n + " unsaved log edit" + (n === 1 ? "" : "s") + " stored in this browser?")) return;
+      edits = {}; saveEdits(); render();
+    });
+  }
+
+  function findItem(id) { for (var i = 0; i < items.length; i++) if (items[i].id === id) return items[i]; return null; }
+
+  function rerenderCard(item) {
+    var old = el.grid.querySelector('.card[data-id="' + CSS.escape(item.id) + '"]');
+    if (old && matches(item)) {
+      var fresh = renderCard(item);
+      old.replaceWith(fresh);
+      renderStats();
+      return fresh;
+    }
+    render();
+    return null;
+  }
+
+  // ---------- Editor ----------
+  function openEditor(item) {
+    editingId = item.id;
+    var u = userOf(item);
+    var f = el.form.elements;
+    var unit = unitOf(item), total = totalOf(item);
+    $("editor-title").textContent = item.title;
+    $("editor-sub").textContent = [typeLabel(item.media_type), (item.serialization || {}).display].filter(Boolean).join(" · ");
+    f.status.value = u.status || "";
+    f.rating.value = u.rating == null ? "" : String(u.rating);
+    f.progress.value = u.progress == null ? "" : String(u.progress);
+    f.progress.disabled = !unit;
+    $("progress-hint").textContent = unit ? "(" + unit + (total != null ? " of " + total : "") + ")" : "";
+    f.favorite.checked = !!u.favorite;
+    f.started.value = u.started || "";
+    f.finished.value = u.finished || "";
+    f.notes.value = u.notes || "";
+    el.dialog.showModal();
+    f.status.focus();
+  }
+
+  function readEditor(item) {
+    var f = el.form.elements;
+    var total = totalOf(item);
+    var prog = f.progress.value === "" ? null : Math.max(0, Math.floor(Number(f.progress.value)));
+    if (prog != null && !isFinite(prog)) prog = null;
+    var u = Object.assign({}, userOf(item), {
+      status: f.status.value || null,
+      rating: f.rating.value === "" ? null : Number(f.rating.value),
+      progress: prog,
+      favorite: f.favorite.checked,
+      started: f.started.value || null,
+      finished: f.finished.value || null,
+      notes: f.notes.value.trim()
+    });
+    if (u.status === "completed" && u.progress == null && total != null && unitOf(item)) u.progress = total;
+    return u;
+  }
+
+  function closeEditor() { el.dialog.close(); editingId = null; }
+
+  function bindEditor() {
+    el.form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var item = findItem(editingId);
+      if (item) { setUser(item, readEditor(item)); rerenderCard(item); }
+      closeEditor();
+    });
+    $("editor-cancel").addEventListener("click", closeEditor);
+    $("editor-close").addEventListener("click", closeEditor);
+    $("editor-clear").addEventListener("click", function () {
+      var item = findItem(editingId);
+      if (item) { setUser(item, Object.assign({}, EMPTY_USER)); rerenderCard(item); }
+      closeEditor();
+    });
+    el.dialog.addEventListener("click", function (e) { if (e.target === el.dialog) closeEditor(); });
+  }
+
+  // ---------- Export ----------
+  function exportJson() {
+    var out = Object.assign({}, doc, {
+      items: items.map(function (it) { return Object.assign({}, it, { user: userOf(it) }); })
+    });
+    var blob = new Blob([JSON.stringify(out, null, 2) + "\n"], { type: "application/json" });
+    var a = h("a", { href: URL.createObjectURL(blob), download: "data.json" });
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  // ---------- Footer ----------
+  function renderSources() {
+    var parts = [];
+    (doc.sources || []).forEach(function (s) {
+      parts.push(h("p", null, [
+        "Source: ",
+        s.url ? h("a", { href: s.url, target: "_blank", rel: "noopener", text: s.name || s.url }) : (s.name || ""),
+        s.retrieved ? " (retrieved " + s.retrieved + ")" : "",
+        s.notes ? ". " + s.notes : ""
+      ]));
+    });
+    parts.push(h("p", null, [
+      "Catalog generated " + (doc.generated || "—") + ". Log edits are saved in this browser; use ",
+      h("b", { text: "Export JSON" }), " and commit the file to publish them."
+    ]));
+    el.sources.replaceChildren.apply(el.sources, parts);
   }
 
   // ---------- Boot ----------
   fetch(DATA_URL, { cache: "no-cache" })
-    .then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
-    })
+    .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
     .then(function (data) {
-      state.entries = extractList(data).map(normalise);
+      doc = data;
+      items = Array.isArray(data.items) ? data.items : [];
+      // Drop stored edits for titles no longer in the catalog.
+      Object.keys(edits).forEach(function (id) { if (!findItem(id)) delete edits[id]; });
+      saveEdits();
 
-      var statuses = Array.from(new Set(state.entries.map(function (e) { return e.status; })))
-        .sort(function (a, b) {
-          var ia = STATUS_ORDER.indexOf(a), ib = STATUS_ORDER.indexOf(b);
-          return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib) || a.localeCompare(b);
-        });
-      var genres = Array.from(new Set([].concat.apply([], state.entries.map(function (e) { return e.genres; })))).sort();
-      fillSelect(el.status, statuses, statusLabel);
-      fillSelect(el.genre, genres);
-
+      el.tagline.textContent = items.length + " titles in the catalog. Track what you've read and watched.";
+      buildFilters();
       readHash();
       syncControls();
-      bind();
-      renderStats(state.entries);
-      if (!state.entries.length) {
-        showMessage("", "No entries found in <code>data.json</code>.");
+      bindControls();
+      bindEditor();
+      renderSources();
+      if (!items.length) {
+        el.message.hidden = false;
+        el.message.innerHTML = "No items found in <code>data.json</code>.";
+        renderStats();
         return;
       }
       render();
     })
     .catch(function (err) {
-      var local = location.protocol === "file:";
-      showMessage("", local
-        ? "Couldn't load <code>data.json</code> from a local file. Serve the folder instead, e.g. <code>python3 -m http.server</code>, then open <code>http://localhost:8000</code>."
-        : "Couldn't load <code>data.json</code> (" + String(err.message).replace(/[<>&]/g, "") + ").");
       console.error(err);
+      el.message.hidden = false;
+      el.message.innerHTML = location.protocol === "file:"
+        ? "Couldn't load <code>data.json</code> from a local file. Serve the folder instead, e.g. <code>python3 -m http.server</code>, then open <code>http://localhost:8000</code>."
+        : "Couldn't load <code>data.json</code>.";
     });
 })();

@@ -4,14 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Anime &amp; Manga Log</title>
-  <meta name="description" content="A personal log of anime watched and manga read.">
+  <meta name="description" content="A personal anime and manga log built on a catalog of the best-selling manga series.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="wrap">
-      <h1>Anime &amp; Manga Log</h1>
-      <p class="tagline">Everything watched, read, and still waiting on the list.</p>
+    <div class="wrap header-row">
+      <div>
+        <h1>Anime &amp; Manga Log</h1>
+        <p class="tagline" id="tagline">Track what you've read and watched.</p>
+      </div>
+      <div class="header-actions">
+        <button type="button" class="btn" id="export-btn" title="Download data.json with your log entries merged in">Export JSON</button>
+        <button type="button" class="btn ghost" id="reset-btn" hidden>Discard local edits</button>
+      </div>
     </div>
   </header>
 
@@ -19,42 +25,78 @@
     <section class="stats" id="stats" aria-label="Summary"></section>
 
     <section class="controls" aria-label="Filters">
-      <div class="seg" role="group" aria-label="Media type" id="type-filter">
-        <button type="button" data-type="all" aria-pressed="true">All</button>
-        <button type="button" data-type="anime" aria-pressed="false">Anime</button>
-        <button type="button" data-type="manga" aria-pressed="false">Manga</button>
-      </div>
       <label class="field grow">
         <span class="sr-only">Search</span>
-        <input type="search" id="search" placeholder="Search titles, genres, notes…" autocomplete="off">
+        <input type="search" id="search" placeholder="Search titles, creators, publishers, genres…" autocomplete="off">
       </label>
-      <label class="field">
-        <span class="sr-only">Status</span>
-        <select id="status-filter"><option value="all">All statuses</option></select>
+      <label class="field"><span class="sr-only">My status</span>
+        <select id="f-status"><option value="all">Any log status</option></select>
       </label>
-      <label class="field">
-        <span class="sr-only">Genre</span>
-        <select id="genre-filter"><option value="all">All genres</option></select>
+      <label class="field"><span class="sr-only">Media type</span>
+        <select id="f-type"><option value="all">All media</option></select>
       </label>
-      <label class="field">
-        <span class="sr-only">Sort</span>
+      <label class="field"><span class="sr-only">Demographic</span>
+        <select id="f-demo"><option value="all">All demographics</option></select>
+      </label>
+      <label class="field"><span class="sr-only">Genre</span>
+        <select id="f-genre"><option value="all">All genres</option></select>
+      </label>
+      <label class="field"><span class="sr-only">Publication status</span>
+        <select id="f-pub"><option value="all">Any publication</option></select>
+      </label>
+      <label class="field"><span class="sr-only">Sort</span>
         <select id="sort">
-          <option value="recent">Recently active</option>
-          <option value="score">Highest score</option>
+          <option value="rank">Sales rank</option>
           <option value="title">Title A–Z</option>
-          <option value="year">Release year</option>
-          <option value="progress">Progress</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="volumes">Most volumes</option>
+          <option value="rating">My rating</option>
         </select>
       </label>
+      <button type="button" class="btn ghost" id="clear-btn">Clear</button>
     </section>
 
     <p class="result-count" id="result-count" aria-live="polite"></p>
-    <section class="grid" id="grid" aria-label="Entries"></section>
+    <section class="grid" id="grid" aria-label="Titles"></section>
     <p class="message" id="message" hidden></p>
   </main>
 
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form method="dialog" id="editor-form">
+      <header class="dlg-head">
+        <div>
+          <h2 id="editor-title"></h2>
+          <p class="meta" id="editor-sub"></p>
+        </div>
+        <button type="button" class="icon-btn" id="editor-close" aria-label="Close">×</button>
+      </header>
+      <div class="dlg-body">
+        <label>Status
+          <select name="status"><option value="">Not logged</option></select>
+        </label>
+        <label>Rating
+          <select name="rating"><option value="">—</option></select>
+        </label>
+        <label><span>Progress <span class="hint" id="progress-hint"></span></span>
+          <input type="number" name="progress" min="0" step="1" inputmode="numeric">
+        </label>
+        <label class="check"><input type="checkbox" name="favorite"> Favorite</label>
+        <label>Started <input type="date" name="started"></label>
+        <label>Finished <input type="date" name="finished"></label>
+        <label class="full">Notes <textarea name="notes" rows="4"></textarea></label>
+      </div>
+      <footer class="dlg-foot">
+        <button type="button" class="btn ghost" id="editor-clear">Clear entry</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn ghost" id="editor-cancel">Cancel</button>
+        <button type="submit" class="btn" value="save">Save</button>
+      </footer>
+    </form>
+  </dialog>
+
   <footer class="site-footer">
-    <div class="wrap">Data from <a href="data.json">data.json</a>.</div>
+    <div class="wrap" id="sources"></div>
   </footer>
 
   <script src="app.js"></script>
